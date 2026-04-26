@@ -1,7 +1,7 @@
-# Brandon Tung — Personal Brand Site
+# Brandon Tung
 
-> 中文先 / English second — bilingual personal-brand documentation site.
-> 資安老兵跨入 AI/ML · A security veteran crossing into applied machine learning.
+> **Agent，從營運現場長出來。**
+> **Agents, grown on the ops floor.**
 
 **Live site**: https://imbrandontung.mintlify.app/
 
@@ -16,7 +16,7 @@
 ├── docs.json              # Mintlify 站台配置
 ├── index.mdx              # 落地頁
 ├── introduction.mdx       # 首頁（hero + 卡片）
-├── about.mdx              # 個人故事（過去 / 現在 / 未來三層敘事）
+├── about.mdx              # 履歷與能力範圍
 ├── projects/              # ML 專案頁
 │   ├── regression.mdx
 │   ├── classification.mdx

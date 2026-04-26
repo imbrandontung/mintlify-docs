@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop"
 
 $RepoUrl    = "https://github.com/imbrandontung/mintlify-docs.git"
 $BranchName = "main"
-$CommitMsg  = "Initial commit: bilingual personal-brand docs (zh-TW + en)"
+$CommitMsg  = "Rebrand: Agents, grown on the ops floor."
 $ScriptDir  = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 Write-Host "==> Working directory: $ScriptDir"
