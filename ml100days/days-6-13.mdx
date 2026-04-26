@@ -1,0 +1,78 @@
+---
+title: "Days 6–13：資料分析與視覺化 / Data Analysis & Visualization"
+description: "從原始資料載入跨入分析與建模準備，做分布、視覺化、EDA、特徵工程的基本功。Bridging from raw loading into analysis and modeling prep — distributions, visualization, EDA, feature engineering basics."
+---
+
+## 中文版
+
+### 八日學習地圖
+
+| Day | 主題 | 重點 | Notebook（TODO）|
+|---|---|---|---|
+| Day 6 | 資料分布分析 / Distribution | histogram、KDE、boxplot；判斷常態 / 偏態 / 重尾 | `Day_006_HW.ipynb`（TODO 連結）|
+| Day 7 | 離群值偵測 / Outliers | IQR、Z-score、視覺化判讀 | TODO |
+| Day 8 | 相關性分析 / Correlation | Pearson / Spearman、相關矩陣熱圖 | TODO |
+| Day 9 | EDA 工作流 / EDA Workflow | 端對端的 EDA 流程：載入 → 描述 → 視覺化 → 假設 | TODO |
+| Day 10 | 特徵縮放 / Scaling | StandardScaler / MinMaxScaler / RobustScaler | TODO |
+| Day 11 | 類別編碼 / Encoding | One-Hot / Label / Target Encoding | TODO |
+| Day 12 | 特徵交互 / Interaction | 多項式特徵、領域知識特徵 | TODO |
+| Day 13 | 特徵選擇 / Selection | Filter / Wrapper / Embedded 方法 | TODO |
+
+### 八日重點筆記（TODO）
+
+* TODO — Day 6 ~ 13 各日心得
+
+### 跟前五天的延續
+
+從 **資料載入（Days 1–5）** 進入 **「先看清楚資料、再決定怎麼建模」**，這八天是 ML 工程裡最容易被忽略、卻最決定模型品質的部分。
+
+### 程式碼片段示範（TODO）
+
+```python
+# TODO: representative snippet from Day 6 — distribution analysis
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("data.csv")
+# Histogram for a single feature
+df['some_feature'].hist(bins=30)
+plt.show()
+```
+
+---
+
+## English Version
+
+### Eight-day map
+
+| Day | Topic | Focus | Notebook (TODO) |
+|---|---|---|---|
+| Day 6 | Distribution analysis | Histograms, KDE, boxplots; spotting normal / skewed / heavy-tailed shapes | `Day_006_HW.ipynb` (TODO link) |
+| Day 7 | Outlier detection | IQR, z-score, visual inspection | TODO |
+| Day 8 | Correlation analysis | Pearson / Spearman, correlation heatmap | TODO |
+| Day 9 | EDA workflow | End-to-end EDA — load → describe → visualize → hypothesize | TODO |
+| Day 10 | Feature scaling | StandardScaler / MinMaxScaler / RobustScaler | TODO |
+| Day 11 | Categorical encoding | One-Hot / Label / Target encoding | TODO |
+| Day 12 | Feature interactions | Polynomial features, domain-knowledge features | TODO |
+| Day 13 | Feature selection | Filter / wrapper / embedded methods | TODO |
+
+### Daily takeaways (TODO)
+
+* TODO — Day 6 through Day 13 reflections
+
+### Continuity from Days 1–5
+
+The first five days were about **getting the data into Python**. These eight are about **looking at the data carefully before deciding how to model it** — the most-skipped, most-quality-defining stretch in any ML workflow.
+
+### Representative code snippet (TODO)
+
+```python
+# TODO: representative snippet from Day 6 — distribution analysis
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("data.csv")
+# Histogram for a single feature
+df['some_feature'].hist(bins=30)
+plt.show()
+```

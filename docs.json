@@ -1,0 +1,60 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Brandon Tung",
+  "description": "資安老兵跨入 AI/ML — Brandon Tung 的個人品牌站。Security veteran crossing into applied machine learning.",
+  "colors": {
+    "primary": "#10B981",
+    "light": "#34D399",
+    "dark": "#059669"
+  },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Portfolio",
+        "groups": [
+          {
+            "group": "總覽 / Overview",
+            "pages": [
+              "introduction",
+              "about"
+            ]
+          },
+          {
+            "group": "ML 專案 / Projects",
+            "pages": [
+              "projects/regression",
+              "projects/classification",
+              "projects/nlp-bots",
+              "projects/eda",
+              "projects/scraping",
+              "projects/visualization"
+            ]
+          },
+          {
+            "group": "100 天挑戰 / ML 100 Days",
+            "pages": [
+              "ml100days/overview",
+              "ml100days/days-1-5",
+              "ml100days/days-6-13"
+            ]
+          },
+          {
+            "group": "資源 / Resources",
+            "pages": [
+              "resources/datasets",
+              "resources/tools"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/imbrandontung/",
+      "github": "https://github.com/imbrandontung"
+    }
+  }
+}
