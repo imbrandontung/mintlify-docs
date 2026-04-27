@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop"
 
 $RepoUrl    = "https://github.com/imbrandontung/mintlify-docs.git"
 $BranchName = "main"
-$CommitMsg  = "feat: integrate Cloudflare Web Analytics"
+$CommitMsg  = "revert: remove unsupported integrations.cloudflare key"
 $ScriptDir  = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 Write-Host "==> Working directory: $ScriptDir"
