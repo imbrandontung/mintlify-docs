@@ -46,6 +46,12 @@
               "resources/datasets",
               "resources/tools"
             ]
+          },
+          {
+            "group": "觀點 / Posts",
+            "pages": [
+              "posts/gcnext26-agent-security"
+            ]
           }
         ]
       }

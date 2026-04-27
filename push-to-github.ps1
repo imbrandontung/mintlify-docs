@@ -6,13 +6,20 @@ $ErrorActionPreference = "Stop"
 
 $RepoUrl    = "https://github.com/imbrandontung/mintlify-docs.git"
 $BranchName = "main"
-$CommitMsg  = "feat: integrate GTM (loading Cloudflare Web Analytics beacon)"
+$CommitMsg  = "feat(posts): add GCNext 2026 agent security insights (bilingual)"
 $ScriptDir  = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 Write-Host "==> Working directory: $ScriptDir"
 Set-Location -Path $ScriptDir
 
 try {
+    ## 0. Clean up stale index.lock (left over from interrupted git ops)
+    $LockFile = Join-Path $ScriptDir ".git\index.lock"
+    if (Test-Path $LockFile) {
+        Write-Host "==> removing stale .git/index.lock"
+        Remove-Item -Force $LockFile
+    }
+
     ## 1. git: confirm available
     $GitVersion = git --version
     Write-Host "==> $GitVersion"
@@ -29,9 +36,12 @@ try {
     Write-Host "==> git branch -M $BranchName"
     git branch -M $BranchName 2>$null
 
-    ## 4. stage everything
+    ## 4. stage everything (with exit code check)
     Write-Host "==> git add ."
     git add .
+    if ($LASTEXITCODE -ne 0) {
+        throw "git add failed with exit code $LASTEXITCODE"
+    }
 
     ## 5. commit (only if there is something staged)
     $StagedDiff = git diff --cached --name-only
@@ -40,6 +50,9 @@ try {
     } else {
         Write-Host "==> git commit"
         git commit -m $CommitMsg
+        if ($LASTEXITCODE -ne 0) {
+            throw "git commit failed with exit code $LASTEXITCODE"
+        }
     }
 
     ## 6. set remote (replace if exists)
@@ -55,6 +68,9 @@ try {
     ## 7. push
     Write-Host "==> git push -u origin $BranchName"
     git push -u origin $BranchName
+    if ($LASTEXITCODE -ne 0) {
+        throw "git push failed with exit code $LASTEXITCODE"
+    }
 
     Write-Host ""
     Write-Host "==> SUCCESS. Repo URL: $RepoUrl"
