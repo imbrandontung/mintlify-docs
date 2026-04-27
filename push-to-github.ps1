@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop"
 
 $RepoUrl    = "https://github.com/imbrandontung/mintlify-docs.git"
 $BranchName = "main"
-$CommitMsg  = "Fix: align index.mdx with Agents, grown on the ops floor."
+$CommitMsg  = "feat: integrate Cloudflare Web Analytics"
 $ScriptDir  = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 Write-Host "==> Working directory: $ScriptDir"

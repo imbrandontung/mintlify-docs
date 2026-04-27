@@ -56,5 +56,10 @@
       "linkedin": "https://www.linkedin.com/in/imbrandontung/",
       "github": "https://github.com/imbrandontung"
     }
+  },
+  "integrations": {
+    "cloudflare": {
+      "token": "ee76c3d27289402c8bf92183ac240c43"
+    }
   }
 }
