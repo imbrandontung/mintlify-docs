@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop"
 
 $RepoUrl    = "https://github.com/imbrandontung/mintlify-docs.git"
 $BranchName = "main"
-$CommitMsg  = "revert: remove unsupported integrations.cloudflare key"
+$CommitMsg  = "feat: integrate GTM (loading Cloudflare Web Analytics beacon)"
 $ScriptDir  = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 Write-Host "==> Working directory: $ScriptDir"
