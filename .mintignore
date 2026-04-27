@@ -1,0 +1,18 @@
+# Mintlify ignore — 本檔列出不要被 Mintlify 站台渲染的路徑
+
+# Tooling scripts (本機一次性工具，不渲染為文章)
+push-to-github.ps1
+push.bat
+fresh-push.ps1
+fresh-push.bat
+cleanup-leak.ps1
+cleanup-leak.bat
+cleanup-leak-recover.ps1
+cleanup-leak-recover.bat
+cleanup-leak-finalpush.ps1
+cleanup-leak-finalpush.bat
+fix-git-author.ps1
+fix-git-author.bat
+
+# 流量數據快照（純資料，由 weekly-brand-sync-audit Skill 寫入）
+analytics-history/
