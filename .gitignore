@@ -18,3 +18,5 @@ mint.lock
 # Env
 .env
 .env.local
+fix-git-author.bat
+fix-git-author.ps1
