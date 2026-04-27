@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop"
 
 $RepoUrl    = "https://github.com/imbrandontung/mintlify-docs.git"
 $BranchName = "main"
-$CommitMsg  = "Rebrand: Agents, grown on the ops floor."
+$CommitMsg  = "Fix: align index.mdx with Agents, grown on the ops floor."
 $ScriptDir  = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 Write-Host "==> Working directory: $ScriptDir"
