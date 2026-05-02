@@ -20,3 +20,11 @@ mint.lock
 .env.local
 fix-git-author.bat
 fix-git-author.ps1
+
+# Brand Auto Dashboard (local-only data and config)
+daily_collector.config.json
+daily_collector.log
+daily_collector.log.1
+brand_data.js
+sample_data_7days.json
+# brand_data.jso

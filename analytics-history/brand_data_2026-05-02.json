@@ -1,0 +1,327 @@
+{
+  "schema": "v3",
+  "nda": [
+    {
+      "date": "2026-05-01",
+      "hits": 0,
+      "files_scanned": 19,
+      "files_with_hits": 0,
+      "by_pattern": {
+        "IP-Private": 0,
+        "IP-Public": 0,
+        "Email-Internal": 0,
+        "Hostname-Pattern": 0,
+        "Project-Code": 0,
+        "Contract-No": 0,
+        "NDA-Trigger": 0
+      },
+      "by_file": [],
+      "scanned_files": [
+        "W1_AcquisitionWave.md",
+        "W2_ContrarianTakes.md",
+        "W3_FourPillars.md",
+        "W4_SIPivot.md",
+        "about.mdx",
+        "index.mdx",
+        "introduction.mdx",
+        "ml100days/days-1-5.mdx",
+        "ml100days/days-6-13.mdx",
+        "ml100days/overview.mdx",
+        "posts/gcnext26-agent-security.mdx",
+        "projects/classification.mdx",
+        "projects/eda.mdx",
+        "projects/nlp-bots.mdx",
+        "projects/regression.mdx",
+        "projects/scraping.mdx",
+        "projects/visualization.mdx",
+        "resources/datasets.mdx",
+        "resources/tools.mdx"
+      ],
+      "ts": "2026-05-01T01:06:31.721453+00:00"
+    },
+    {
+      "date": "2026-05-02",
+      "hits": 0,
+      "files_scanned": 20,
+      "files_with_hits": 0,
+      "by_pattern": {
+        "IP-Private": 0,
+        "IP-Public": 0,
+        "Email-Internal": 0,
+        "Hostname-Pattern": 0,
+        "Project-Code": 0,
+        "Contract-No": 0,
+        "NDA-Trigger": 0
+      },
+      "by_file": [],
+      "scanned_files": [
+        "W1_AcquisitionWave.md",
+        "W2_ContrarianTakes.md",
+        "W3_FourPillars.md",
+        "W4_SIPivot.md",
+        "about.mdx",
+        "index.mdx",
+        "introduction.mdx",
+        "ml100days/days-1-5.mdx",
+        "ml100days/days-6-13.mdx",
+        "ml100days/overview.mdx",
+        "posts/gcnext26-agent-security.mdx",
+        "projects/classification.mdx",
+        "projects/eda.mdx",
+        "projects/nlp-bots.mdx",
+        "projects/regression.mdx",
+        "projects/scraping.mdx",
+        "projects/visualization.mdx",
+        "release_notes_snapshot.md",
+        "resources/datasets.mdx",
+        "resources/tools.mdx"
+      ],
+      "ts": "2026-05-02T20:30:29.517650+00:00"
+    }
+  ],
+  "metrics": [
+    {
+      "date": "2026-05-01",
+      "github": {
+        "username": "imbrandontung",
+        "followers": 0,
+        "following": 1,
+        "public_repos": 3,
+        "stars": 0,
+        "forks": 0,
+        "fetched": true
+      },
+      "mintlify": {
+        "domain": "imbrandontung.mintlify.app",
+        "page_count": 14,
+        "fetched": true
+      },
+      "cloudflare": {
+        "skipped": "no credentials"
+      },
+      "linkedin": {
+        "skipped": "no token"
+      },
+      "agent": {
+        "skipped": "no agent endpoint configured"
+      },
+      "ts": "2026-05-01T01:06:31.721475+00:00"
+    },
+    {
+      "date": "2026-05-02",
+      "github": {
+        "username": "imbrandontung",
+        "followers": 0,
+        "following": 1,
+        "public_repos": 3,
+        "stars": 0,
+        "forks": 0,
+        "fetched": true
+      },
+      "mintlify": {
+        "domain": "imbrandontung.mintlify.app",
+        "page_count": 14,
+        "fetched": true
+      },
+      "cloudflare": {
+        "skipped": "no credentials"
+      },
+      "linkedin": {
+        "skipped": "no token"
+      },
+      "agent": {
+        "skipped": "no agent endpoint configured"
+      },
+      "ts": "2026-05-02T20:30:29.517670+00:00"
+    }
+  ],
+  "articles": {
+    "as_of": "2026-05-02",
+    "score_formula": "non_blank_lines + headings*10 + code_blocks*50 + (recency<=7d ? 50 : 0)",
+    "score_note": "Proxy score until Cloudflare/LinkedIn analytics wired in",
+    "ranked": [
+      {
+        "file": "posts/gcnext26-agent-security.mdx",
+        "url": "/posts/gcnext26-agent-security",
+        "title": "GCNext 2026：當 AI Agent 成為企業員工，資安該怎麼做？/ When AI Agents Become Enterprise Employees: A Security Playbook",
+        "lines": 342,
+        "headings": 25,
+        "code_blocks": 0,
+        "last_modified": "2026-04-27T14:12:44.596027+00:00",
+        "recency_days": 5,
+        "score": 531,
+        "rank": 1
+      },
+      {
+        "file": "about.mdx",
+        "url": "/about",
+        "title": "關於 Brandon / About Brandon",
+        "lines": 218,
+        "headings": 20,
+        "code_blocks": 0,
+        "last_modified": "2026-04-27T14:22:58.004092+00:00",
+        "recency_days": 5,
+        "score": 416,
+        "rank": 2
+      },
+      {
+        "file": "ml100days/days-6-13.mdx",
+        "url": "/ml100days/days-6-13",
+        "title": "Days 6–13：資料分析與視覺化 / Data Analysis & Visualization",
+        "lines": 78,
+        "headings": 14,
+        "code_blocks": 2,
+        "last_modified": "2026-04-26T22:21:09.630155+00:00",
+        "recency_days": 5,
+        "score": 347,
+        "rank": 3
+      },
+      {
+        "file": "ml100days/days-1-5.mdx",
+        "url": "/ml100days/days-1-5",
+        "title": "Days 1–5：資料載入 / Data Loading",
+        "lines": 72,
+        "headings": 10,
+        "code_blocks": 2,
+        "last_modified": "2026-04-26T22:20:48.949914+00:00",
+        "recency_days": 5,
+        "score": 304,
+        "rank": 4
+      },
+      {
+        "file": "resources/tools.mdx",
+        "url": "/resources/tools",
+        "title": "工具棧 / Tools & Stack",
+        "lines": 88,
+        "headings": 10,
+        "code_blocks": 0,
+        "last_modified": "2026-04-26T22:38:27.191428+00:00",
+        "recency_days": 5,
+        "score": 217,
+        "rank": 5
+      },
+      {
+        "file": "ml100days/overview.mdx",
+        "url": "/ml100days/overview",
+        "title": "100 天挑戰總覽 / ML 100 Days Overview",
+        "lines": 73,
+        "headings": 10,
+        "code_blocks": 0,
+        "last_modified": "2026-04-26T22:20:33.137766+00:00",
+        "recency_days": 5,
+        "score": 202,
+        "rank": 6
+      },
+      {
+        "file": "projects/scraping.mdx",
+        "url": "/projects/scraping",
+        "title": "網頁爬蟲 / Web Scraping",
+        "lines": 64,
+        "headings": 10,
+        "code_blocks": 0,
+        "last_modified": "2026-04-26T22:19:48.888250+00:00",
+        "recency_days": 5,
+        "score": 193,
+        "rank": 7
+      },
+      {
+        "file": "projects/regression.mdx",
+        "url": "/projects/regression",
+        "title": "回歸 / Regression",
+        "lines": 63,
+        "headings": 10,
+        "code_blocks": 0,
+        "last_modified": "2026-04-26T22:18:50.228441+00:00",
+        "recency_days": 5,
+        "score": 192,
+        "rank": 8
+      },
+      {
+        "file": "projects/classification.mdx",
+        "url": "/projects/classification",
+        "title": "分類 / Classification",
+        "lines": 59,
+        "headings": 10,
+        "code_blocks": 0,
+        "last_modified": "2026-04-26T22:19:03.969446+00:00",
+        "recency_days": 5,
+        "score": 190,
+        "rank": 9
+      },
+      {
+        "file": "projects/eda.mdx",
+        "url": "/projects/eda",
+        "title": "探索性資料分析 / EDA",
+        "lines": 59,
+        "headings": 10,
+        "code_blocks": 0,
+        "last_modified": "2026-04-26T22:19:33.233149+00:00",
+        "recency_days": 5,
+        "score": 190,
+        "rank": 10
+      },
+      {
+        "file": "projects/nlp-bots.mdx",
+        "url": "/projects/nlp-bots",
+        "title": "NLP 與聊天機器人 / NLP & Bots",
+        "lines": 57,
+        "headings": 10,
+        "code_blocks": 0,
+        "last_modified": "2026-04-26T22:19:18.002201+00:00",
+        "recency_days": 5,
+        "score": 188,
+        "rank": 11
+      },
+      {
+        "file": "projects/visualization.mdx",
+        "url": "/projects/visualization",
+        "title": "視覺化 / Visualization",
+        "lines": 57,
+        "headings": 10,
+        "code_blocks": 0,
+        "last_modified": "2026-04-26T22:20:02.956089+00:00",
+        "recency_days": 5,
+        "score": 188,
+        "rank": 12
+      },
+      {
+        "file": "resources/datasets.mdx",
+        "url": "/resources/datasets",
+        "title": "資料集 / Datasets",
+        "lines": 53,
+        "headings": 8,
+        "code_blocks": 0,
+        "last_modified": "2026-04-26T22:21:29.065025+00:00",
+        "recency_days": 5,
+        "score": 168,
+        "rank": 13
+      },
+      {
+        "file": "introduction.mdx",
+        "url": "/introduction",
+        "title": "Brandon Tung — Agents, grown on the ops floor.",
+        "lines": 47,
+        "headings": 4,
+        "code_blocks": 0,
+        "last_modified": "2026-04-27T14:22:58.031188+00:00",
+        "recency_days": 5,
+        "score": 126,
+        "rank": 14
+      },
+      {
+        "file": "index.mdx",
+        "url": "/",
+        "title": "Brandon Tung",
+        "lines": 26,
+        "headings": 4,
+        "code_blocks": 0,
+        "last_modified": "2026-04-27T14:22:58.023606+00:00",
+        "recency_days": 5,
+        "score": 107,
+        "rank": 15
+      }
+    ]
+  },
+  "last_run": "2026-05-02T20:30:30.278388+00:00",
+  "last_run_local": "2026-05-02 20:30:30"
+}
