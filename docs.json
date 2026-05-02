@@ -50,6 +50,7 @@
           {
             "group": "觀點 / Posts",
             "pages": [
+              "posts/gcnext26-mcp-trust-chain",
               "posts/gcnext26-agent-security"
             ]
           }

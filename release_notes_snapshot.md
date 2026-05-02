@@ -1,0 +1,139 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3580]:
+    - generic [ref=e3581]:
+      - list [ref=e3585]:
+        - listitem [ref=e3586]
+        - listitem [ref=e3588]
+        - listitem [ref=e3590]
+        - listitem [ref=e3592]
+      - generic [ref=e3595]:
+        - generic [ref=e3596]
+        - generic [ref=e3609] [cursor=pointer]: 
+    - generic [ref=e3612]:
+      - generic [ref=e3614]:
+        - combobox [ref=e3615]
+        - button "Search" [ref=e3622] [cursor=pointer]
+      - link "Search tips " [ref=e3630] [cursor=pointer]:
+        - /url: https://support.f5.com/csp/article/K98133564
+        - text: Search tips
+        - generic [ref=e3631]: 
+  - navigation [ref=e3]:
+    - heading "F5 BIG-IP Container Ingress Services" [level=5] [ref=e4]
+    - search [ref=e5]:
+      - generic [ref=e6]:
+        - textbox "Search..." [ref=e7]:
+          - /placeholder: " Search..."
+        - button "" [ref=e8] [cursor=pointer]
+    - separator [ref=e10]
+    - generic [ref=e11]:
+      - list [ref=e12]:
+        - listitem [ref=e13]
+      - list [ref=e15]:
+        - listitem [ref=e16]
+  - generic [ref=e26]:
+    - text: "On this page:"
+    - navigation [ref=e27]:
+      - list [ref=e29]:
+        - listitem [ref=e30]
+  - article [ref=e587]:
+    - navigation [ref=e588]:
+      - list [ref=e589]:
+        - listitem [ref=e590]
+    - button "PDF" [ref=e595] [cursor=pointer]
+    - text: 
+    - main [ref=e596]:
+      - generic [ref=e597]:
+        - heading "Release Notes¶" [level=1] [ref=e598]
+        - paragraph [ref=e600]
+        - generic [ref=e602]
+        - generic [ref=e609]
+        - generic [ref=e668]
+        - generic [ref=e720]
+        - generic [ref=e784]
+        - generic [ref=e827]
+        - generic [ref=e910]
+        - generic [ref=e957]
+        - generic [ref=e1058]
+        - generic [ref=e1114]
+        - generic [ref=e1165]
+        - generic [ref=e1226]
+        - generic [ref=e1319]
+        - generic [ref=e1347]
+        - generic [ref=e1429]
+        - generic [ref=e1530]
+        - generic [ref=e1562]
+        - generic [ref=e1639]
+        - generic [ref=e1696]
+        - generic [ref=e1802]
+        - generic [ref=e1854]
+        - generic [ref=e1879]
+        - generic [ref=e1946]
+        - generic [ref=e1978]
+        - generic [ref=e2056]
+        - generic [ref=e2114]
+        - generic [ref=e2303]
+        - generic [ref=e2401]
+        - generic [ref=e2441]
+        - generic [ref=e2497]
+        - generic [ref=e2560]
+        - generic [ref=e2667]
+        - generic [ref=e2698]
+        - generic [ref=e2783]
+        - generic [ref=e2831]
+        - generic [ref=e2923]
+        - generic [ref=e2993]
+        - generic [ref=e3083]
+        - generic [ref=e3150]
+        - generic [ref=e3164]
+        - generic [ref=e3210]
+        - generic [ref=e3265]
+        - generic [ref=e3324]
+        - generic [ref=e3378]
+        - generic [ref=e3479]
+    - generic [ref=e3575]:
+      - link "Previous" [ref=e3576] [cursor=pointer]:
+        - /url: faq.html
+        - generic [ref=e3577]: 
+        - text: Previous
+      - link "Next" [ref=e3578] [cursor=pointer]:
+        - /url: revision-history.html
+        - text: Next
+        - generic [ref=e3579]: 
+  - generic [ref=e3634]:
+    - generic [ref=e3636]:
+      - generic:
+        - generic [ref=e3638]
+        - generic [ref=e3643]
+    - separator [ref=e3658]
+    - generic [ref=e3660]:
+      - generic [ref=e3661]:
+        - heading "About F5" [level=4] [ref=e3662]
+        - list [ref=e3663]
+      - generic [ref=e3674]:
+        - heading "Education" [level=4] [ref=e3675]
+        - list [ref=e3676]
+      - generic [ref=e3685]:
+        - heading "F5 sites" [level=4] [ref=e3686]
+        - list [ref=e3687]
+      - generic [ref=e3698]:
+        - heading "Support Tasks" [level=4] [ref=e3699]
+        - list [ref=e3700]
+    - generic [ref=e3708]:
+      - paragraph [ref=e3709]: © 2026 F5, Inc. All rights reserved.
+      - paragraph [ref=e3710]:
+        - link "Trademarks" [ref=e3711] [cursor=pointer]:
+          - /url: https://www.f5.com/company/policies/trademarks
+        - text: "|"
+        - link "Policies" [ref=e3712] [cursor=pointer]:
+          - /url: https://www.f5.com/company/policies
+        - text: "|"
+        - link "Privacy" [ref=e3713] [cursor=pointer]:
+          - /url: https://www.f5.com/company/policies/privacy-policy
+        - text: "|"
+        - link "California Privacy" [ref=e3714] [cursor=pointer]:
+          - /url: https://www.f5.com/company/policies/F5-California-privacy-summary
+        - text: "|"
+        - link "Do Not Sell My Personal Information" [ref=e3715] [cursor=pointer]:
+          - /url: https://www.f5.com/company/policies/privacy-notice#no-sell
+        - text: "|"
+        - complementary "Open Cookie Preferences Modal" [ref=e3716]

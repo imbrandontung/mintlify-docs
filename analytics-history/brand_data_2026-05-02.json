@@ -76,7 +76,7 @@
         "resources/datasets.mdx",
         "resources/tools.mdx"
       ],
-      "ts": "2026-05-02T20:30:29.517650+00:00"
+      "ts": "2026-05-02T20:32:52.846257+00:00"
     }
   ],
   "metrics": [
@@ -124,15 +124,20 @@
         "fetched": true
       },
       "cloudflare": {
-        "skipped": "no credentials"
+        "pageviews": 0,
+        "visits": 0,
+        "visitors": 0,
+        "for_date": "2026-05-01",
+        "fetched": true
       },
       "linkedin": {
         "skipped": "no token"
       },
       "agent": {
-        "skipped": "no agent endpoint configured"
+        "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+        "fetched": false
       },
-      "ts": "2026-05-02T20:30:29.517670+00:00"
+      "ts": "2026-05-02T20:32:52.846303+00:00"
     }
   ],
   "articles": {
@@ -322,6 +327,6 @@
       }
     ]
   },
-  "last_run": "2026-05-02T20:30:30.278388+00:00",
-  "last_run_local": "2026-05-02 20:30:30"
+  "last_run": "2026-05-02T20:32:53.926461+00:00",
+  "last_run_local": "2026-05-02 20:32:53"
 }

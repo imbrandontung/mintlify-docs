@@ -1,0 +1,827 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - list [ref=e7]:
+        - listitem [ref=e8]:
+          - link "F5.com" [ref=e9] [cursor=pointer]:
+            - /url: https://f5.com
+        - listitem [ref=e10]:
+          - text: "|"
+          - link "GitHub" [ref=e11] [cursor=pointer]:
+            - /url: https://github.com/F5Networks
+        - listitem [ref=e12]:
+          - text: "|"
+          - link "Devcentral" [ref=e13] [cursor=pointer]:
+            - /url: https://devcentral.f5.com
+        - listitem [ref=e14]:
+          - text: "|"
+          - link "Support" [ref=e15] [cursor=pointer]:
+            - /url: https://support.f5.com
+      - generic [ref=e17]:
+        - generic [ref=e18]:
+          - link "F5":
+            - /url: https://f5.com
+            - img "F5" [ref=e19] [cursor=pointer]
+          - list [ref=e20]:
+            - listitem [ref=e21]:
+              - link "Products" [ref=e22] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e23]:
+              - link "APIs" [ref=e24] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e25]:
+              - link "Cloud & Container" [ref=e26] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e27]:
+              - link "Resources" [ref=e28] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=e31] [cursor=pointer]: 
+    - generic [ref=e34]:
+      - generic [ref=e36]:
+        - combobox [ref=e37]:
+          - generic [ref=e38]:
+            - combobox "Search AskF5" [ref=e40]
+            - button "Clear":
+              - img [ref=e41] [cursor=pointer]
+        - button "Search" [ref=e44] [cursor=pointer]:
+          - img [ref=e46]
+      - link "Search tips " [ref=e52] [cursor=pointer]:
+        - /url: https://support.f5.com/csp/article/K98133564
+        - text: Search tips
+        - generic [ref=e53]: 
+  - navigation [ref=e55]:
+    - heading "F5 BIG-IP Container Ingress Services" [level=5] [ref=e56]
+    - search [ref=e57]:
+      - generic [ref=e58]:
+        - textbox "Search..." [ref=e59]:
+          - /placeholder: " Search..."
+        - button "" [ref=e60] [cursor=pointer]:
+          - generic [ref=e61]: 
+    - separator [ref=e62]
+    - generic [ref=e63]:
+      - list [ref=e64]:
+        - listitem [ref=e65]:
+          - generic [ref=e66] [cursor=pointer]: 
+          - link "User Guide Index" [ref=e67] [cursor=pointer]:
+            - /url: ../index.html
+          - list [ref=e68]:
+            - listitem [ref=e69]:
+              - link "Overview of F5 BIG-IP Container Ingress Services" [ref=e70] [cursor=pointer]:
+                - /url: ../what-is.html
+            - listitem [ref=e71]:
+              - link "Kubernetes" [ref=e72] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e73]:
+              - generic [ref=e74] [cursor=pointer]: 
+              - link "CIS Installation" [ref=e75] [cursor=pointer]:
+                - /url: "#cis-installation"
+              - list [ref=e76]:
+                - listitem [ref=e77]:
+                  - link "Prerequisites" [ref=e78] [cursor=pointer]:
+                    - /url: "#prerequisites"
+                - listitem [ref=e79]:
+                  - generic [ref=e80] [cursor=pointer]: 
+                  - link "Installing CIS Using Helm Charts" [ref=e81] [cursor=pointer]:
+                    - /url: "#installing-cis-using-helm-charts"
+                  - list [ref=e82]:
+                    - listitem [ref=e83]:
+                      - link "Chart parameters" [ref=e84] [cursor=pointer]:
+                        - /url: "#chart-parameters"
+                    - listitem [ref=e85]:
+                      - link "Uninstalling Helm Chart" [ref=e86] [cursor=pointer]:
+                        - /url: "#uninstalling-helm-chart"
+                - listitem [ref=e87]:
+                  - generic [ref=e88] [cursor=pointer]: 
+                  - link "Installing CIS Manually" [ref=e89] [cursor=pointer]:
+                    - /url: "#installing-cis-manually"
+                  - list [ref=e90]:
+                    - listitem [ref=e91]:
+                      - link "Uninstalling CIS" [ref=e92] [cursor=pointer]:
+                        - /url: "#uninstalling-cis"
+                - listitem [ref=e93]:
+                  - link "Creating VXLAN Tunnels on Kubernetes Cluster" [ref=e94] [cursor=pointer]:
+                    - /url: "#creating-vxlan-tunnels-on-kubernetes-cluster"
+            - listitem [ref=e95]:
+              - link "OpenShift" [ref=e96] [cursor=pointer]:
+                - /url: ../openshift/index.html
+            - listitem [ref=e97]:
+              - link "CIS Installation" [ref=e98] [cursor=pointer]:
+                - /url: ../openshift/index.html#cis-installation
+            - listitem [ref=e99]:
+              - link "VMware Tanzu" [ref=e100] [cursor=pointer]:
+                - /url: ../vmware-tanzu/index.html
+            - listitem [ref=e101]:
+              - link "ConfigMap" [ref=e102] [cursor=pointer]:
+                - /url: ../config-map.html
+            - listitem [ref=e103]:
+              - link "Routes" [ref=e104] [cursor=pointer]:
+                - /url: ../routes.html
+            - listitem [ref=e105]:
+              - link "NextGenRoute" [ref=e106] [cursor=pointer]:
+                - /url: ../next-gen-routes/index.html
+            - listitem [ref=e107]:
+              - link "Ingress" [ref=e108] [cursor=pointer]:
+                - /url: ../ingress.html
+            - listitem [ref=e109]:
+              - link "Custom Resource Definitions" [ref=e110] [cursor=pointer]:
+                - /url: ../crd/index.html
+            - listitem [ref=e111]:
+              - link "Service Type LoadBalancer" [ref=e112] [cursor=pointer]:
+                - /url: ../loadbalancer/index.html
+            - listitem [ref=e113]:
+              - link "F5 IngressLink" [ref=e114] [cursor=pointer]:
+                - /url: ../ingresslink/index.html
+            - listitem [ref=e115]:
+              - link "F5 IPAM Controller" [ref=e116] [cursor=pointer]:
+                - /url: ../ipam/index.html
+            - listitem [ref=e117]:
+              - link "VMware vSphere Kubernetes Service (VKS)" [ref=e118] [cursor=pointer]:
+                - /url: ../vmware-vks/index.html
+            - listitem [ref=e119]:
+              - link "OpenShift/Kubernetes Multi-Cluster" [ref=e120] [cursor=pointer]:
+                - /url: ../multicluster/index.html
+      - list [ref=e121]:
+        - listitem [ref=e122]:
+          - link "Reference Index" [ref=e123] [cursor=pointer]:
+            - /url: ../../reference/index.html
+  - generic [ref=e124]:
+    - text: "On this page:"
+    - navigation [ref=e125]:
+      - list [ref=e127]:
+        - listitem [ref=e128]:
+          - link "Kubernetes" [ref=e129] [cursor=pointer]:
+            - /url: "#"
+        - listitem [ref=e130]:
+          - generic [ref=e131] [cursor=pointer]: 
+          - link "CIS Installation" [ref=e132] [cursor=pointer]:
+            - /url: "#cis-installation"
+          - list [ref=e133]:
+            - listitem [ref=e134]:
+              - link "Prerequisites" [ref=e135] [cursor=pointer]:
+                - /url: "#prerequisites"
+            - listitem [ref=e136]:
+              - generic [ref=e137] [cursor=pointer]: 
+              - link "Installing CIS Using Helm Charts" [ref=e138] [cursor=pointer]:
+                - /url: "#installing-cis-using-helm-charts"
+              - list [ref=e139]:
+                - listitem [ref=e140]:
+                  - link "Chart parameters" [ref=e141] [cursor=pointer]:
+                    - /url: "#chart-parameters"
+                - listitem [ref=e142]:
+                  - link "Uninstalling Helm Chart" [ref=e143] [cursor=pointer]:
+                    - /url: "#uninstalling-helm-chart"
+            - listitem [ref=e144]:
+              - generic [ref=e145] [cursor=pointer]: 
+              - link "Installing CIS Manually" [ref=e146] [cursor=pointer]:
+                - /url: "#installing-cis-manually"
+              - list [ref=e147]:
+                - listitem [ref=e148]:
+                  - link "Uninstalling CIS" [ref=e149] [cursor=pointer]:
+                    - /url: "#uninstalling-cis"
+            - listitem [ref=e150]:
+              - link "Creating VXLAN Tunnels on Kubernetes Cluster" [ref=e151] [cursor=pointer]:
+                - /url: "#creating-vxlan-tunnels-on-kubernetes-cluster"
+  - article [ref=e153]:
+    - navigation [ref=e154]:
+      - list [ref=e155]:
+        - listitem [ref=e156]:
+          - button "" [ref=e157] [cursor=pointer]:
+            - generic [ref=e158]: 
+          - link "CloudDocs Home" [ref=e159] [cursor=pointer]:
+            - /url: /
+          - text: ">"
+          - link "F5 BIG-IP Container Ingress Services" [ref=e160] [cursor=pointer]:
+            - /url: ../../index.html
+          - text: "> Kubernetes"
+    - button "PDF" [ref=e161] [cursor=pointer]
+    - text: 
+    - main [ref=e162]:
+      - heading "Kubernetes¶" [level=1] [ref=e164]:
+        - text: Kubernetes
+        - link "¶" [ref=e165] [cursor=pointer]:
+          - /url: "#kubernetes"
+      - generic [ref=e166]:
+        - heading "CIS Installation¶" [level=1] [ref=e167]:
+          - text: CIS Installation
+          - link "¶" [ref=e168] [cursor=pointer]:
+            - /url: "#cis-installation"
+        - paragraph [ref=e169]: CIS can be configured for Kubernetes and OpenShift, varying by resources (ConfigMap, Ingress, Routes, CRD, serviceTypeLB), BIG-IP deployment (stand alone, HA), and cluster networking (Flannel/Calico/Cilium/Antrea/OVNKuberentes).
+        - generic [ref=e170]:
+          - heading "Prerequisites¶" [level=2] [ref=e171]:
+            - text: Prerequisites
+            - link "¶" [ref=e172] [cursor=pointer]:
+              - /url: "#prerequisites"
+          - generic [ref=e173]:
+            - paragraph [ref=e174]: See also
+            - paragraph [ref=e175]:
+              - link "Installing Kubernetes with Minikube" [ref=e176] [cursor=pointer]:
+                - /url: https://kubernetes.io/docs/setup/learning-environment/minikube/
+              - text: .
+          - paragraph [ref=e177]: "These are the mandatory requirements for deploying CIS:"
+          - list [ref=e178]:
+            - listitem [ref=e179]:
+              - paragraph [ref=e180]: Kubernetes Cluster must be up and running.
+            - listitem [ref=e181]:
+              - paragraph [ref=e182]: "AS3: 3.18+ must be installed on your BIG-IP system."
+            - listitem [ref=e183]:
+              - paragraph [ref=e184]: Use the latest TLS version and cipher suites in Kubernetes for kube-api.
+            - listitem [ref=e185]:
+              - paragraph [ref=e186]: "Create a BIG-IP partition to manage Kubernetes objects. This partition can be created either via the GUI (System > Users > Partition List) or via our TMOS CLI:"
+              - generic [ref=e188]:
+                - generic [ref=e189]: create auth partition <cis_managed_partition>
+                - button "Copy to clipboard" [ref=e190] [cursor=pointer]:
+                  - img "Copy to clipboard" [ref=e191]
+            - listitem [ref=e195]:
+              - paragraph [ref=e196]: You need a user with administrative access to this partition.
+            - listitem [ref=e197]:
+              - paragraph [ref=e198]: If you need to pull the k8s-bigip-ctlr image from a private Docker registry, store your Docker login credentials as a Secret.
+          - paragraph [ref=e199]:
+            - text: Additionally, if you are using VXLan in Cluster Mode you need to have the following prerequisites. For more information, see
+            - link "BIG-IP Networking with CIS" [ref=e200] [cursor=pointer]:
+              - /url: https://clouddocs.f5.com/containers/latest/userguide/config-options.html#config-options
+            - text: .
+          - list [ref=e201]:
+            - listitem [ref=e202]: You must have a fully active/licensed BIG-IP. SDN must be licensed. For more information, see BIG-IP VE license support for SDN services.
+            - listitem [ref=e203]:
+              - text: VXLan tunnel should be configured from Kubernetes Cluster to BIG-IP. For more information, see
+              - link "Creating VXLAN Tunnels on Kubernetes Cluster" [ref=e204] [cursor=pointer]:
+                - /url: "#Creating-VXLAN-Tunnels-on-Kubernetes-Cluster"
+              - text: .
+          - paragraph [ref=e205]:
+            - text: Also consider
+            - link "BIG-IP Networking with CIS" [ref=e206] [cursor=pointer]:
+              - /url: https://clouddocs.f5.com/containers/latest/userguide/config-options.html#config-options
+            - text: .
+          - paragraph [ref=e207]:
+            - text: For BIG-IP HA, see
+            - link "Deploying CIS with BIG-IP HA" [ref=e208] [cursor=pointer]:
+              - /url: https://clouddocs.f5.com/containers/latest/userguide/cis-deployment-options.html
+        - generic [ref=e209]:
+          - heading "Installing CIS Using Helm Charts¶" [level=2] [ref=e210]:
+            - text: Installing CIS Using Helm Charts
+            - link "¶" [ref=e211] [cursor=pointer]:
+              - /url: "#installing-cis-using-helm-charts"
+          - generic [ref=e212]:
+            - paragraph [ref=e213]: See also
+            - paragraph [ref=e214]:
+              - link "Introduction to Helm" [ref=e215] [cursor=pointer]:
+                - /url: https://helm.sh/docs/intro/
+              - text: .
+          - paragraph [ref=e216]: This is the simplest way to install CIS on OpenShift/Kubernetes cluster. Helm is a package manager for Kubernetes. Helm is Kubernetes version of yum or apt. Helm deploys something called charts, which you can think of as a packaged application. It is a collection of all your versioned, pre-configured application resources which can be deployed as one unit.
+          - list [ref=e217]:
+            - listitem [ref=e218]:
+              - paragraph [ref=e219]: Clone the GitHub repository
+              - generic [ref=e221]:
+                - generic [ref=e222]: git clone https://github.com/F5Networks/k8s-bigip-ctlr.git
+                - button "Copy to clipboard" [ref=e223] [cursor=pointer]:
+                  - img "Copy to clipboard" [ref=e224]
+            - listitem [ref=e228]:
+              - paragraph [ref=e229]: Download the CA/BIG IP certificate and use it with CIS controller.
+              - generic [ref=e231]:
+                - generic [ref=e232]: echo | openssl s_client -showcerts -servername <server-hostname> -connect <server-ip-address>:<server-port> 2>/dev/null | openssl x509 -outform PEM > server_cert.pem kubectl create configmap trusted-certs --from-file=./server_cert.pem -n kube-system
+                - button "Copy to clipboard" [ref=e233] [cursor=pointer]:
+                  - img "Copy to clipboard" [ref=e234]
+          - paragraph [ref=e238]:
+            - text: Alternatively, for non-prod environment you can use
+            - code [ref=e239]: "--insecure=true"
+            - text: parameter.
+          - paragraph [ref=e240]:
+            - strong [ref=e241]: Note:-
+            - text: If you are updating the BIGIP/CA Certificates, don’t miss to rotate them on k8s cluster and restart the CIS.
+          - list [ref=e242]:
+            - listitem [ref=e243]:
+              - paragraph [ref=e244]: Add BIG-IP credentials as K8S secrets.
+              - generic [ref=e246]:
+                - generic [ref=e247]: kubectl create secret generic f5-bigip-ctlr-login -n kube-system --from-literal=username=admin --from-literal=password=<password> --from-literal=url=<bigip-uri>
+                - button "Copy to clipboard" [ref=e248] [cursor=pointer]:
+                  - img "Copy to clipboard" [ref=e249]
+            - listitem [ref=e253]:
+              - paragraph [ref=e254]: "Add the CIS chart repository in Helm using following command:"
+              - generic [ref=e256]:
+                - generic [ref=e257]: helm repo add f5-stable https://f5networks.github.io/charts/stable
+                - button "Copy to clipboard" [ref=e258] [cursor=pointer]:
+                  - img "Copy to clipboard" [ref=e259]
+            - listitem [ref=e263]:
+              - paragraph [ref=e264]:
+                - text: Update the
+                - code [ref=e265]: sample-helm-values.yaml
+              - generic [ref=e267]:
+                - generic [ref=e268]: ./docs/config_examples/Install/k8s/sample-helm-values.yaml
+                - button "Copy to clipboard" [ref=e269] [cursor=pointer]:
+                  - img "Copy to clipboard" [ref=e270]
+            - listitem [ref=e274]:
+              - paragraph [ref=e275]: "Installing Helm charts:"
+          - blockquote [ref=e276]:
+            - generic [ref=e277]:
+              - list [ref=e278]:
+                - listitem [ref=e279]: "Install the Helm chart using the following command if BIG-IP credential secrets are created manually:"
+              - generic [ref=e281]:
+                - generic [ref=e282]: helm install -f values.yaml <new-chart-name> f5-stable/f5-bigip-ctlr
+                - button "Copy to clipboard" [ref=e283] [cursor=pointer]:
+                  - img "Copy to clipboard" [ref=e284]
+              - list [ref=e288]:
+                - listitem [ref=e289]: "Install the Helm chart with –skip crds if BIG-IP credential secrets are created manually (without Custom Resource Definitions installations):"
+              - generic [ref=e291]:
+                - generic [ref=e292]: helm install --skip-crds -f values.yaml <new-chart-name> f5-stable/f5-bigip-ctlr
+                - button "Copy to clipboard" [ref=e293] [cursor=pointer]:
+                  - img "Copy to clipboard" [ref=e294]
+              - list [ref=e298]:
+                - listitem [ref=e299]: "If you want to create the BIG-IP credential secret with Helm charts, use the following command:"
+              - generic [ref=e301]:
+                - generic [ref=e302]: helm install --set bigip_secret.create="true" --set bigip_secret.username=$BIGIP_USERNAME --set bigip_secret.password=$BIGIP_PASSWORD -f values.yaml <new-chart-name> f5-stable/f5-bigip-ctlr
+                - button "Copy to clipboard" [ref=e303] [cursor=pointer]:
+                  - img "Copy to clipboard" [ref=e304]
+          - paragraph [ref=e308]:
+            - strong [ref=e309]: "Note:"
+            - text: "For Kubernetes versions lower than 1.18, please use Helm chart version 0.0.14 as follows: helm install –skip-crds -f values.yaml f5-stable/f5-bigip-ctlr –version 0.0.14."
+          - generic [ref=e310]:
+            - heading "Chart parameters¶" [level=3] [ref=e311]:
+              - text: Chart parameters
+              - link "¶" [ref=e312] [cursor=pointer]:
+                - /url: "#chart-parameters"
+            - table [ref=e313]:
+              - rowgroup [ref=e319]:
+                - row "Parameter Required Default Description" [ref=e320]:
+                  - columnheader "Parameter" [ref=e321]
+                  - columnheader "Required" [ref=e322]
+                  - columnheader "Default" [ref=e323]
+                  - columnheader "Description" [ref=e324]
+              - rowgroup [ref=e325]:
+                - row "bigip_login_secret Optional f5-bigip-ctlr-login Secret that contains BIG-IP login credentials." [ref=e326]:
+                  - cell "bigip_login_secret" [ref=e327]
+                  - cell "Optional" [ref=e328]
+                  - cell "f5-bigip-ctlr-login" [ref=e329]
+                  - cell "Secret that contains BIG-IP login credentials." [ref=e330]
+                - row "bigip_secret.create Optional false Create Kubernetes secret using username and password." [ref=e331]:
+                  - cell "bigip_secret.create" [ref=e332]
+                  - cell "Optional" [ref=e333]
+                  - cell "false" [ref=e334]
+                  - cell "Create Kubernetes secret using username and password." [ref=e335]
+                - row "bigip_secret.username Optional N/A BIG-IP username to create the Kubernetes secret." [ref=e336]:
+                  - cell "bigip_secret.username" [ref=e337]
+                  - cell "Optional" [ref=e338]
+                  - cell "N/A" [ref=e339]
+                  - cell "BIG-IP username to create the Kubernetes secret." [ref=e340]
+                - row "bigip_secret.password Optional N/A BIG-IP password to create the Kubernetes secret." [ref=e341]:
+                  - cell "bigip_secret.password" [ref=e342]
+                  - cell "Optional" [ref=e343]
+                  - cell "N/A" [ref=e344]
+                  - cell "BIG-IP password to create the Kubernetes secret." [ref=e345]
+                - row "args.bigip_url Required N/A The management IP for your BIG-IP device." [ref=e346]:
+                  - cell "args.bigip_url" [ref=e347]
+                  - cell "Required" [ref=e348]
+                  - cell "N/A" [ref=e349]
+                  - cell "The management IP for your BIG-IP device." [ref=e350]
+                - row "args.bigip_partition Required f5-bigip-ctlr BIG-IP partition the CIS Controller will manage." [ref=e351]:
+                  - cell "args.bigip_partition" [ref=e352]
+                  - cell "Required" [ref=e353]
+                  - cell "f5-bigip-ctlr" [ref=e354]
+                  - cell "BIG-IP partition the CIS Controller will manage." [ref=e355]
+                - row "args.namespaces Optional N/A List of Kubernetes namespaces which CIS will monitor." [ref=e356]:
+                  - cell "args.namespaces" [ref=e357]
+                  - cell "Optional" [ref=e358]
+                  - cell "N/A" [ref=e359]
+                  - cell "List of Kubernetes namespaces which CIS will monitor." [ref=e360]
+                - row "rbac.create Optional true Create ClusterRole and ClusterRoleBinding." [ref=e361]:
+                  - cell "rbac.create" [ref=e362]
+                  - cell "Optional" [ref=e363]
+                  - cell "true" [ref=e364]
+                  - cell "Create ClusterRole and ClusterRoleBinding." [ref=e365]
+                - row "rbac.namespaced Optional false Creates Namespaced Role and Rolebindings for watched namespaces and only minimal cluster role for cluster scoped resources." [ref=e366]:
+                  - cell "rbac.namespaced" [ref=e367]
+                  - cell "Optional" [ref=e368]
+                  - cell "false" [ref=e369]
+                  - cell "Creates Namespaced Role and Rolebindings for watched namespaces and only minimal cluster role for cluster scoped resources." [ref=e370]
+                - row "serviceAccount.name Optional f5-bigip-ctlr-serviceaccount Name of the ServiceAccount for CIS controller." [ref=e371]:
+                  - cell "serviceAccount.name" [ref=e372]
+                  - cell "Optional" [ref=e373]
+                  - cell "f5-bigip-ctlr-serviceaccount" [ref=e374]
+                  - cell "Name of the ServiceAccount for CIS controller." [ref=e375]
+                - row "serviceAccount.create Optional true Create service account for the CIS controller." [ref=e376]:
+                  - cell "serviceAccount.create" [ref=e377]
+                  - cell "Optional" [ref=e378]
+                  - cell "true" [ref=e379]
+                  - cell "Create service account for the CIS controller." [ref=e380]
+                - row "namespace Optional kube-system Name of namespace CIS will use to create deployment and other resources." [ref=e381]:
+                  - cell "namespace" [ref=e382]
+                  - cell "Optional" [ref=e383]
+                  - cell "kube-system" [ref=e384]
+                  - cell "Name of namespace CIS will use to create deployment and other resources." [ref=e385]
+                - row "image.user Optional f5networks CIS Controller image repository username." [ref=e386]:
+                  - cell "image.user" [ref=e387]
+                  - cell "Optional" [ref=e388]
+                  - cell "f5networks" [ref=e389]
+                  - cell "CIS Controller image repository username." [ref=e390]
+                - row "image.repo Optional k8s-bigip-ctlr CIS Controller image repository name." [ref=e391]:
+                  - cell "image.repo" [ref=e392]
+                  - cell "Optional" [ref=e393]
+                  - cell "k8s-bigip-ctlr" [ref=e394]
+                  - cell "CIS Controller image repository name." [ref=e395]
+                - row "image.pullPolicy Optional Always CIS Controller image pull policy." [ref=e396]:
+                  - cell "image.pullPolicy" [ref=e397]
+                  - cell "Optional" [ref=e398]
+                  - cell "Always" [ref=e399]
+                  - cell "CIS Controller image pull policy." [ref=e400]
+                - row "image.pullSecrets Optional N/A List of secrets of container registry to pull image." [ref=e401]:
+                  - cell "image.pullSecrets" [ref=e402]
+                  - cell "Optional" [ref=e403]
+                  - cell "N/A" [ref=e404]
+                  - cell "List of secrets of container registry to pull image." [ref=e405]
+                - row "version Optional latest CIS Controller image tag." [ref=e406]:
+                  - cell "version" [ref=e407]
+                  - cell "Optional" [ref=e408]
+                  - cell "latest" [ref=e409]
+                  - cell "CIS Controller image tag." [ref=e410]
+                - row "nodeSelector Optional N/A Dictionary of Node selector labels." [ref=e411]:
+                  - cell "nodeSelector" [ref=e412]
+                  - cell "Optional" [ref=e413]
+                  - cell "N/A" [ref=e414]
+                  - cell "Dictionary of Node selector labels." [ref=e415]
+                - row "tolerations Optional N/A Array of labels." [ref=e416]:
+                  - cell "tolerations" [ref=e417]
+                  - cell "Optional" [ref=e418]
+                  - cell "N/A" [ref=e419]
+                  - cell "Array of labels." [ref=e420]
+                - row "limits_cpu Optional 100m CPU limits for the pod." [ref=e421]:
+                  - cell "limits_cpu" [ref=e422]
+                  - cell "Optional" [ref=e423]
+                  - cell "100m" [ref=e424]
+                  - cell "CPU limits for the pod." [ref=e425]
+                - row "limits_memory Optional 512Mi Memory limits for the pod." [ref=e426]:
+                  - cell "limits_memory" [ref=e427]
+                  - cell "Optional" [ref=e428]
+                  - cell "512Mi" [ref=e429]
+                  - cell "Memory limits for the pod." [ref=e430]
+                - row "requests_cpu Optional 100m CPU request for the pod." [ref=e431]:
+                  - cell "requests_cpu" [ref=e432]
+                  - cell "Optional" [ref=e433]
+                  - cell "100m" [ref=e434]
+                  - cell "CPU request for the pod." [ref=e435]
+                - row "requests_memory Optional 512Mi Memory request for the pod." [ref=e436]:
+                  - cell "requests_memory" [ref=e437]
+                  - cell "Optional" [ref=e438]
+                  - cell "512Mi" [ref=e439]
+                  - cell "Memory request for the pod." [ref=e440]
+                - row "affinity Optional N/A Dictionary of affinity." [ref=e441]:
+                  - cell "affinity" [ref=e442]
+                  - cell "Optional" [ref=e443]
+                  - cell "N/A" [ref=e444]
+                  - cell "Dictionary of affinity." [ref=e445]
+                - row "securityContext Optional N/A Dictionary of deployment securityContext." [ref=e446]:
+                  - cell "securityContext" [ref=e447]
+                  - cell "Optional" [ref=e448]
+                  - cell "N/A" [ref=e449]
+                  - cell "Dictionary of deployment securityContext." [ref=e450]
+                - row "podSecurityContext Optional N/A Dictionary of pod securityContext." [ref=e451]:
+                  - cell "podSecurityContext" [ref=e452]
+                  - cell "Optional" [ref=e453]
+                  - cell "N/A" [ref=e454]
+                  - cell "Dictionary of pod securityContext." [ref=e455]
+                - row "ingressClass.ingressClassName Optional f5 Name of ingress class." [ref=e456]:
+                  - cell "ingressClass.ingressClassName" [ref=e457]
+                  - cell "Optional" [ref=e458]
+                  - cell "f5" [ref=e459]
+                  - cell "Name of ingress class." [ref=e460]
+                - row "ingressClass.isDefaultIngressController Optional false CIS will monitor all ingress resources if set to true." [ref=e461]:
+                  - cell "ingressClass.isDefaultIngressController" [ref=e462]
+                  - cell "Optional" [ref=e463]
+                  - cell "false" [ref=e464]
+                  - cell "CIS will monitor all ingress resources if set to true." [ref=e465]
+                - row "ingressClass.create Optional true Create ingress class." [ref=e466]:
+                  - cell "ingressClass.create" [ref=e467]
+                  - cell "Optional" [ref=e468]
+                  - cell "true" [ref=e469]
+                  - cell "Create ingress class." [ref=e470]
+            - paragraph [ref=e471]:
+              - strong [ref=e472]: "Note:"
+              - text: The parameters bigip_login_secret and bigip_secret are mutually exclusive. If both are defined in the values.yaml file, bigip_secret will be given priority.
+          - generic [ref=e473]:
+            - heading "Uninstalling Helm Chart¶" [level=3] [ref=e474]:
+              - text: Uninstalling Helm Chart
+              - link "¶" [ref=e475] [cursor=pointer]:
+                - /url: "#uninstalling-helm-chart"
+            - list [ref=e476]:
+              - listitem [ref=e477]:
+                - paragraph [ref=e478]: Run the command to uninstall the chart.
+                - generic [ref=e480]:
+                  - generic [ref=e481]: helm delete <new-chart> helm repo remove f5-stable
+                  - button "Copy to clipboard" [ref=e482] [cursor=pointer]:
+                    - img "Copy to clipboard" [ref=e483]
+              - listitem [ref=e487]:
+                - paragraph [ref=e488]: Optionally, Run the command to delete the secrets created.
+                - generic [ref=e490]:
+                  - generic [ref=e491]: kubectl delete secret f5-bigip-ctlr-login -n kube-system
+                  - button "Copy to clipboard" [ref=e492] [cursor=pointer]:
+                    - img "Copy to clipboard" [ref=e493]
+              - listitem [ref=e497]:
+                - paragraph [ref=e498]: Delete the trusted certs configMap
+                - generic [ref=e500]:
+                  - generic [ref=e501]: kubectl delete configmap trusted-certs -n kube-system rm -rf server_cert.pem
+                  - button "Copy to clipboard" [ref=e502] [cursor=pointer]:
+                    - img "Copy to clipboard" [ref=e503]
+        - generic [ref=e507]:
+          - heading "Installing CIS Manually¶" [level=2] [ref=e508]:
+            - text: Installing CIS Manually
+            - link "¶" [ref=e509] [cursor=pointer]:
+              - /url: "#installing-cis-manually"
+          - list [ref=e510]:
+            - listitem [ref=e511]:
+              - paragraph [ref=e512]: Clone the GitHub repository
+              - generic [ref=e514]:
+                - generic [ref=e515]: git clone https://github.com/F5Networks/k8s-bigip-ctlr.git
+                - button "Copy to clipboard" [ref=e516] [cursor=pointer]:
+                  - img "Copy to clipboard" [ref=e517]
+            - listitem [ref=e521]:
+              - paragraph [ref=e522]: Download the CA/BIG IP certificate and use it with CIS controller.
+              - generic [ref=e524]:
+                - generic [ref=e525]: echo | openssl s_client -showcerts -servername <server-hostname> -connect <server-ip-address>:<server-port> 2>/dev/null | openssl x509 -outform PEM > server_cert.pem kubectl create configmap trusted-certs --from-file=./server_cert.pem -n kube-system
+                - button "Copy to clipboard" [ref=e526] [cursor=pointer]:
+                  - img "Copy to clipboard" [ref=e527]
+          - paragraph [ref=e531]:
+            - text: Alternatively, for non-prod environment you can use
+            - code [ref=e532]: "--insecure=true"
+            - text: parameter.
+          - paragraph [ref=e533]:
+            - strong [ref=e534]: Note:-
+            - text: If you are updating the BIGIP/CA Certificates, don’t miss to rotate them on k8s cluster and restart the CIS.
+          - list [ref=e535]:
+            - listitem [ref=e536]:
+              - paragraph [ref=e537]: Create a Cluster Role, Cluster Role Binding and Service account for CIS Controller
+              - generic [ref=e539]:
+                - generic [ref=e540]: kubectl create -f ./docs/config_examples/rbac/k8s_rbac.yml
+                - button "Copy to clipboard" [ref=e541] [cursor=pointer]:
+                  - img "Copy to clipboard" [ref=e542]
+          - paragraph [ref=e546]:
+            - strong [ref=e547]: "Note:"
+            - text: The command has the broadest supported permission set. You can narrow the permissions down to specific resources, namespaces, etc. to suit your needs. See the
+            - link "Namespaced RBAC documentation for configuring namespace scoped RBAC" [ref=e548] [cursor=pointer]:
+              - /url: https://github.com/F5Networks/k8s-bigip-ctlr/tree/2.20-stable/docs/config_examples/rbac/Namespaced-RBAC
+            - text: . See the
+            - link "Kubernetes RBAC documentation" [ref=e549] [cursor=pointer]:
+              - /url: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
+            - text: for more information.
+          - paragraph [ref=e550]:
+            - strong [ref=e551]: "Important:"
+            - text: You can substitute a Role and RoleBinding if your Controller does not need access to the entire Cluster.
+          - list [ref=e552]:
+            - listitem [ref=e553]:
+              - paragraph [ref=e554]:
+                - text: Optionally, Install Custom Resource Definitions for CIS Controller if you are using
+                - link "custom resources" [ref=e555] [cursor=pointer]:
+                  - /url: https://clouddocs.f5.com/containers/latest/userguide/crd/
+                - text: or
+                - link "nextGen Routes" [ref=e556] [cursor=pointer]:
+                  - /url: https://clouddocs.f5.com/containers/latest/userguide/next-gen-routes/
+                - text: or
+                - link "multi-cluster" [ref=e557] [cursor=pointer]:
+                  - /url: https://clouddocs.f5.com/containers/latest/userguide/multicluster/
+              - generic [ref=e559]:
+                - generic [ref=e560]: "export CIS_VERSION=<cis-version> # For example # export CIS_VERSION=v2.20.0 # or # export CIS_VERSION=2.x-master # the latter if using a CIS image with :latest label kubectl create -f https://raw.githubusercontent.com/F5Networks/k8s-bigip-ctlr/${CIS_VERSION}/docs/config_examples/customResourceDefinitions/customresourcedefinitions.yml"
+                - button "Copy to clipboard" [ref=e561] [cursor=pointer]:
+                  - img "Copy to clipboard" [ref=e562]
+            - listitem [ref=e566]:
+              - paragraph [ref=e567]: Create the kubernetes secret with BIG IP credentials
+              - generic [ref=e569]:
+                - generic [ref=e570]: kubectl create secret generic f5-bigip-ctlr-login -n kube-system --from-literal=username=admin --from-literal=password=<password> --from-literal=url=<bigip-uri>
+                - button "Copy to clipboard" [ref=e571] [cursor=pointer]:
+                  - img "Copy to clipboard" [ref=e572]
+            - listitem [ref=e576]:
+              - paragraph [ref=e577]:
+                - text: Update the CIS deployment file with required image and
+                - link "config parameters" [ref=e578] [cursor=pointer]:
+                  - /url: https://clouddocs.f5.com/containers/latest/userguide/config-parameters.html
+                - text: and install the CIS Controller.
+              - generic [ref=e580]:
+                - generic [ref=e581]: kubectl create -f ./docs/config_examples/Install/k8s/sample-k8s-bigip-ctlr.yaml
+                - button "Copy to clipboard" [ref=e582] [cursor=pointer]:
+                  - img "Copy to clipboard" [ref=e583]
+          - generic [ref=e587]:
+            - heading "Uninstalling CIS¶" [level=3] [ref=e588]:
+              - text: Uninstalling CIS
+              - link "¶" [ref=e589] [cursor=pointer]:
+                - /url: "#uninstalling-cis"
+            - list [ref=e590]:
+              - listitem [ref=e591]:
+                - paragraph [ref=e592]: "To uninstall CIS, run the following commands:"
+                - generic [ref=e594]:
+                  - generic [ref=e595]: kubectl delete -f ./docs/config_examples/Install/k8s/sample-k8s-bigip-ctlr.yaml kubectl delete -f ./docs/config_examples/customResourceDefinitions/customresourcedefinitions.yml kubectl delete -f ./docs/config_examples/rbac/k8s_rbac.yml
+                  - button "Copy to clipboard" [ref=e596] [cursor=pointer]:
+                    - img "Copy to clipboard" [ref=e597]
+              - listitem [ref=e601]:
+                - paragraph [ref=e602]: Optionally, Run the command to delete the secrets created.
+                - generic [ref=e604]:
+                  - generic [ref=e605]: kubectl delete secret f5-bigip-ctlr-login -n kube-system
+                  - button "Copy to clipboard" [ref=e606] [cursor=pointer]:
+                    - img "Copy to clipboard" [ref=e607]
+              - listitem [ref=e611]:
+                - paragraph [ref=e612]: Delete the trusted certs configMap
+                - generic [ref=e614]:
+                  - generic [ref=e615]: kubectl delete configmap trusted-certs -n kube-system rm -rf server_cert.pem
+                  - button "Copy to clipboard" [ref=e616] [cursor=pointer]:
+                    - img "Copy to clipboard" [ref=e617]
+        - generic [ref=e621]:
+          - heading "Creating VXLAN Tunnels on Kubernetes Cluster¶" [level=2] [ref=e622]:
+            - text: Creating VXLAN Tunnels on Kubernetes Cluster
+            - link "¶" [ref=e623] [cursor=pointer]:
+              - /url: "#creating-vxlan-tunnels-on-kubernetes-cluster"
+          - paragraph [ref=e624]:
+            - text: This section is required only if you plan to use CIS in a ClusterIP Deployment with VXLan. See
+            - link "BIG IP Networking with CIS" [ref=e625] [cursor=pointer]:
+              - /url: https://clouddocs.f5.com/containers/latest/userguide/config-options.html#config-options
+            - text: for more information.
+          - paragraph [ref=e626]: This configuration is for Standalone BIG-IP.
+          - list [ref=e627]:
+            - listitem [ref=e628]:
+              - paragraph [ref=e629]: Log in to BIG-IP and create a partition called kubernetes for CIS.
+              - generic [ref=e631]:
+                - generic [ref=e632]: tmsh create auth partition kubernetes
+                - button "Copy to clipboard" [ref=e633] [cursor=pointer]:
+                  - img "Copy to clipboard" [ref=e634]
+            - listitem [ref=e638]:
+              - paragraph [ref=e639]: Create a VXLAN profile.
+              - generic [ref=e641]:
+                - generic [ref=e642]: tmsh create net tunnels vxlan fl-vxlan port 8472 flooding-type none
+                - button "Copy to clipboard" [ref=e643] [cursor=pointer]:
+                  - img "Copy to clipboard" [ref=e644]
+            - listitem [ref=e648]:
+              - paragraph [ref=e649]: Create a VXLAN tunnel.
+              - generic [ref=e651]:
+                - generic [ref=e652]: tmsh create net tunnels tunnel fl-vxlan key 1 profile fl-vxlan local-address 192.168.200.60
+                - button "Copy to clipboard" [ref=e653] [cursor=pointer]:
+                  - img "Copy to clipboard" [ref=e654]
+          - blockquote [ref=e658]:
+            - img "img-vxlan.png" [ref=e660]
+          - list [ref=e661]:
+            - listitem [ref=e662]:
+              - paragraph [ref=e663]: Create the VXLAN tunnel self IP.
+              - generic [ref=e665]:
+                - generic [ref=e666]: tmsh create net self 10.244.20.60 address 10.244.20.60/255.255.0.0 allow-service none vlan fl-vxlan
+                - button "Copy to clipboard" [ref=e667] [cursor=pointer]:
+                  - img "Copy to clipboard" [ref=e668]
+          - blockquote [ref=e672]:
+            - img "img-selfip.png" [ref=e674]
+          - list [ref=e675]:
+            - listitem [ref=e676]:
+              - paragraph [ref=e677]: Save the configuration.
+              - generic [ref=e679]:
+                - generic [ref=e680]: tmsh save sys config
+                - button "Copy to clipboard" [ref=e681] [cursor=pointer]:
+                  - img "Copy to clipboard" [ref=e682]
+            - listitem [ref=e686]:
+              - paragraph [ref=e687]:
+                - text: Before deploying CIS in ClusterIP mode, you need to configure BIG-IP as a node in the Kubernetes cluster. To do so you will need to modify
+                - code [ref=e688]: ./docs/config_examples/Install/k8s/bigip-node.yaml
+                - text: with the MAC address auto-created from the previous steps. From the jumpbox terminal, run the following command at bigip1. Copy the displayed MAC Address.
+              - generic [ref=e690]:
+                - generic [ref=e691]: tmsh show net tunnels tunnel k8s-tunnel all-properties
+                - button "Copy to clipboard" [ref=e692] [cursor=pointer]:
+                  - img "Copy to clipboard" [ref=e693]
+            - listitem [ref=e697]:
+              - paragraph [ref=e698]: Update the MAC address obtained in
+              - generic [ref=e700]:
+                - generic [ref=e701]: ./docs/config_examples/Install/k8s/bigip-node.yaml
+                - button "Copy to clipboard" [ref=e702] [cursor=pointer]:
+                  - img "Copy to clipboard" [ref=e703]
+            - listitem [ref=e707]:
+              - paragraph [ref=e708]: "Create the BIG-IP node:"
+              - generic [ref=e710]:
+                - generic [ref=e711]: kubectl create -f ./docs/config_examples/Install/k8s/bigip-node.yaml
+                - button "Copy to clipboard" [ref=e712] [cursor=pointer]:
+                  - img "Copy to clipboard" [ref=e713]
+            - listitem [ref=e717]:
+              - paragraph [ref=e718]: "Verify “bigip1” node is created:"
+              - generic [ref=e720]:
+                - generic [ref=e721]: kubectl get nodes
+                - button "Copy to clipboard" [ref=e722] [cursor=pointer]:
+                  - img "Copy to clipboard" [ref=e723]
+          - generic [ref=e729]:
+            - paragraph [ref=e730]:  Note
+            - paragraph [ref=e731]:
+              - text: To provide feedback on Container Ingress Services or this documentation, please file a
+              - link "GitHub Issue" [ref=e732] [cursor=pointer]:
+                - /url: https://github.com/F5Networks/k8s-bigip-ctlr/issues
+              - text: .
+    - generic [ref=e734]:
+      - link "Previous" [ref=e735] [cursor=pointer]:
+        - /url: ../cis-upgrade.html
+        - generic [ref=e736]: 
+        - text: Previous
+      - link "Next" [ref=e737] [cursor=pointer]:
+        - /url: ../openshift/index.html
+        - text: Next
+        - generic [ref=e738]: 
+  - generic [ref=e741]:
+    - generic [ref=e743]:
+      - generic:
+        - generic [ref=e745]:
+          - heading "HAVE A QUESTION?" [level=4] [ref=e746]
+          - generic [ref=e747]:
+            - text: "|"
+            - link "Support and Sales >" [ref=e748] [cursor=pointer]:
+              - /url: https://www.f5.com/company/contact
+        - generic [ref=e750]:
+          - heading "FOLLOW US" [level=4] [ref=e751]
+          - list [ref=e753]:
+            - listitem [ref=e754]:
+              - link:
+                - /url: https://twitter.com/f5
+                - img [ref=e755] [cursor=pointer]
+            - listitem [ref=e756]:
+              - link:
+                - /url: https://www.linkedin.com/company/f5
+                - img [ref=e757] [cursor=pointer]
+            - listitem [ref=e758]:
+              - link:
+                - /url: https://www.facebook.com/f5incorporated
+                - img [ref=e759] [cursor=pointer]
+            - listitem [ref=e760]:
+              - link:
+                - /url: https://www.youtube.com/user/f5networksinc
+                - img [ref=e761] [cursor=pointer]
+            - listitem [ref=e762]:
+              - link:
+                - /url: https://community.f5.com
+                - img [ref=e763] [cursor=pointer]
+    - separator [ref=e765]
+    - generic [ref=e767]:
+      - generic [ref=e768]:
+        - heading "About F5" [level=4] [ref=e769]
+        - list [ref=e770]:
+          - listitem [ref=e771]:
+            - link "Corporate Information" [ref=e772] [cursor=pointer]:
+              - /url: https://www.f5.com/company
+          - listitem [ref=e773]:
+            - link "Newsroom" [ref=e774] [cursor=pointer]:
+              - /url: https://www.f5.com/company/news
+          - listitem [ref=e775]:
+            - link "Investor Relations" [ref=e776] [cursor=pointer]:
+              - /url: https://www.f5.com/company/investor-relations
+          - listitem [ref=e777]:
+            - link "Careers" [ref=e778] [cursor=pointer]:
+              - /url: https://www.f5.com/company/careers
+          - listitem [ref=e779]:
+            - link "About Clouddocs" [ref=e780] [cursor=pointer]:
+              - /url: /csp/about
+      - generic [ref=e781]:
+        - heading "Education" [level=4] [ref=e782]
+        - list [ref=e783]:
+          - listitem [ref=e784]:
+            - link "Training" [ref=e785] [cursor=pointer]:
+              - /url: https://www.f5.com/services/training
+          - listitem [ref=e786]:
+            - link "Certification" [ref=e787] [cursor=pointer]:
+              - /url: https://www.f5.com/services/certification
+          - listitem [ref=e788]:
+            - link "Education Services Portal" [ref=e789] [cursor=pointer]:
+              - /url: https://education.f5.com/
+          - listitem [ref=e790]:
+            - link "Free Online Training" [ref=e791] [cursor=pointer]:
+              - /url: https://www.f5.com/services/training/free-training-courses
+      - generic [ref=e792]:
+        - heading "F5 sites" [level=4] [ref=e793]
+        - list [ref=e794]:
+          - listitem [ref=e795]:
+            - link "F5.com" [ref=e796] [cursor=pointer]:
+              - /url: https://www.f5.com
+          - listitem [ref=e797]:
+            - link "DevCentral" [ref=e798] [cursor=pointer]:
+              - /url: https://community.f5.com
+          - listitem [ref=e799]:
+            - link "Support Portal" [ref=e800] [cursor=pointer]:
+              - /url: https://my.f5.com/
+          - listitem [ref=e801]:
+            - link "Partner Central" [ref=e802] [cursor=pointer]:
+              - /url: https://partnercentral.f5.com
+          - listitem [ref=e803]:
+            - link "F5 Labs" [ref=e804] [cursor=pointer]:
+              - /url: https://www.f5.com/labs
+      - generic [ref=e805]:
+        - heading "Support Tasks" [level=4] [ref=e806]
+        - list [ref=e807]:
+          - listitem [ref=e808]:
+            - link "Read Support Policies" [ref=e809] [cursor=pointer]:
+              - /url: https://www.f5.com/services/support/support-offerings/support-policies
+          - listitem [ref=e810]:
+            - link "Create Service Request" [ref=e811] [cursor=pointer]:
+              - /url: https://my.f5.com/manage/s/createcase
+          - listitem [ref=e812]: Leave Feedback [+]
+    - generic [ref=e815]:
+      - paragraph [ref=e816]: © 2026 F5, Inc. All rights reserved.
+      - paragraph [ref=e817]:
+        - link "Trademarks" [ref=e818] [cursor=pointer]:
+          - /url: https://www.f5.com/company/policies/trademarks
+        - text: "|"
+        - link "Policies" [ref=e819] [cursor=pointer]:
+          - /url: https://www.f5.com/company/policies
+        - text: "|"
+        - link "Privacy" [ref=e820] [cursor=pointer]:
+          - /url: https://www.f5.com/company/policies/privacy-policy
+        - text: "|"
+        - link "California Privacy" [ref=e821] [cursor=pointer]:
+          - /url: https://www.f5.com/company/policies/F5-California-privacy-summary
+        - text: "|"
+        - link "Do Not Sell My Personal Information" [ref=e822] [cursor=pointer]:
+          - /url: https://www.f5.com/company/policies/privacy-notice#no-sell
+        - text: "|"
+        - complementary "Open Cookie Preferences Modal" [ref=e823]:
+          - link "Cookie Preferences, opens a dedicated popup modal window" [ref=e824] [cursor=pointer]: Cookie 喜好设置

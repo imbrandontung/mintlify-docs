@@ -1,0 +1,37 @@
+# Cloudflare Worker configuration — Brandon Tung Agent Endpoint
+#
+# Deploy steps (one-time):
+#   1) npm install -g wrangler
+#   2) cd agent/worker && wrangler login
+#   3) Create KV: wrangler kv:namespace create "AGENT_KV"
+#      → copy the returned id into [[kv_namespaces]] below
+#   4) Set admin token: wrangler secret put ADMIN_TOKEN
+#   5) Build static assets (run from repo root): python3 agent/build_llms.py
+#      then copy agent/llms.txt agent/llms-full.txt agent/agent-manifest.json
+#      into agent/worker/public/
+#   6) wrangler deploy
+
+name = "imbrandontung-agent"
+main = "src/index.js"
+compatibility_date = "2025-04-01"
+
+# Expose Worker on the *.workers.dev subdomain
+workers_dev = true
+
+# Static assets — served via env.ASSETS binding inside the Worker
+[assets]
+directory = "./public"
+binding = "ASSETS"
+
+# KV namespace for check-in records (replace id after running step 3)
+[[kv_namespaces]]
+binding = "AGENT_KV"
+id = "36ff98a18fdc4916a9240b13653cdb69"
+
+# Optional: route on a custom domain (after DNS setup)
+# routes = [
+#   { pattern = "agent.brandontung.tw/*", custom_domain = true }
+# ]
+
+# Deployment will be available at:
+#   https://imbrandontung-agent.<your-subdomain>.workers.dev

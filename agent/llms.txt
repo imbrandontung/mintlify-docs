@@ -1,0 +1,30 @@
+# Brandon Tung
+
+> Agent，從營運現場長出來。Agents, grown on the ops floor.
+
+Brandon Tung (童國鎮) — AI Security Architect / Dynasafe Digital COE Lead.
+25 years in enterprise security & IT operations. AI Agent strategy, TOGAF EA, NPI.
+
+## Pages
+
+- [關於 Brandon / About Brandon](https://imbrandontung.mintlify.app/about): Agent，從營運現場長出來。Agents, grown on the ops floor.
+- [Brandon Tung](https://imbrandontung.mintlify.app/): Agent，從營運現場長出來。Agents, grown on the ops floor.
+- [Brandon Tung — Agents, grown on the ops floor.](https://imbrandontung.mintlify.app/introduction): Agent，從營運現場長出來。Agents, grown on the ops floor. — Brandon Tung 的 AI Agent 作品集。
+- [Days 1–5：資料載入 / Data Loading](https://imbrandontung.mintlify.app/ml100days/days-1-5): 100 天挑戰的開頭五天，建立 Python ML 工作環境、認識資料型態、學會用 pandas 載入與初步處理。Days 1–5 of the 100-day challenge — environment setup, data types, and pandas loading basics.
+- [Days 6–13：資料分析與視覺化 / Data Analysis & Visualization](https://imbrandontung.mintlify.app/ml100days/days-6-13): 從原始資料載入跨入分析與建模準備，做分布、視覺化、EDA、特徵工程的基本功。Bridging from raw loading into analysis and modeling prep — distributions, visualization, EDA, feature engineering basics.
+- [100 天挑戰總覽 / ML 100 Days Overview](https://imbrandontung.mintlify.app/ml100days/overview): 跟著 2nd-ML100Days 結構化挑戰走完 100 天的學習地圖、進度紀錄與心得。Walking through the 2nd-ML100Days structured challenge — roadmap, progress log, and reflections.
+- [GCNext 2026：當 AI Agent 成為企業員工，資安該怎麼做？/ When AI Agents Become Enterprise Employees: A Security Playbook](https://imbrandontung.mintlify.app/posts/gcnext26-agent-security): 從 Google Cloud Next 2026 的 43 場 Agent 場次看 AI 戰場如何從『模型能力』轉向『執行控制權』。Reading 43 agent-related sessions from Google Cloud Next 2026 — the battleground is shifting from model capability to execution control.
+- [分類 / Classification](https://imbrandontung.mintlify.app/projects/classification): Logistic Regression、SVM、KNN、決策樹、整合學習等分類模型的實作與評估。Hands-on classification notes — logistic regression, SVM, KNN, decision trees, and ensembles.
+- [探索性資料分析 / EDA](https://imbrandontung.mintlify.app/projects/eda): 用 pandas、matplotlib、seaborn 進行資料分布、缺失值、相關性、特徵工程等 EDA 工作。Hands-on EDA notes — distributions, missing values, correlations, feature engineering.
+- [NLP 與聊天機器人 / NLP & Bots](https://imbrandontung.mintlify.app/projects/nlp-bots): Tokenization、TF-IDF、word embeddings、垃圾訊息分類、聊天機器人等自然語言處理練習。Notes on tokenization, TF-IDF, embeddings, spam classification, chatbots.
+- [回歸 / Regression](https://imbrandontung.mintlify.app/projects/regression): 用線性、Ridge、Lasso、決策樹、隨機森林等模型預測連續數值的實作筆記。Hands-on regression notes covering linear, Ridge, Lasso, tree, and random-forest models.
+- [網頁爬蟲 / Web Scraping](https://imbrandontung.mintlify.app/projects/scraping): 用 requests、BeautifulSoup、Selenium、Playwright 等工具收集公開資料的實作筆記。Hands-on scraping notes — requests, BeautifulSoup, Selenium, Playwright.
+- [視覺化 / Visualization](https://imbrandontung.mintlify.app/projects/visualization): 用 matplotlib、seaborn、plotly、Bokeh 等工具把資料故事說好。Hands-on data viz notes — matplotlib, seaborn, plotly, Bokeh.
+- [資料集 / Datasets](https://imbrandontung.mintlify.app/resources/datasets): 本站專案使用的開源資料集索引，附使用條款與來源連結。Index of open datasets used across the projects, with licenses and source links.
+- [工具棧 / Tools & Stack](https://imbrandontung.mintlify.app/resources/tools): Brandon 的 Python ML 工作棧、開發環境，以及通用化的資安專業領域。Brandon's working stack — Python ML, dev tools, and generalized security domain.
+
+## Machine Endpoints
+
+- Agent manifest: /.well-known/agent-manifest.json
+- Full content: /llms-full.txt
+- Check-in: POST /agent/checkin

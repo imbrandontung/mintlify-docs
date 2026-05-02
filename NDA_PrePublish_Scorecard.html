@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brandon Tung 資安自媒體 — Agents, grown on the ops floor.</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<script src="brand_data.js" onerror="window.BRAND_DATA=null"></script>
+<style>
+  :root{
+    --bg:#0f1419; --card:#1a1f2e; --border:#2a3142;
+    --text:#e6e9ef; --muted:#8b95a7; --accent:#4d9eff;
+    --green:#22c55e; --yellow:#f59e0b; --red:#ef4444;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,"Segoe UI","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+  .wrap{max-width:1200px;margin:0 auto;padding:24px 20px 80px}
+  header{border-bottom:1px solid var(--border);padding-bottom:16px;margin-bottom:22px}
+  h1{margin:0 0 4px;font-size:24px;font-weight:600}
+  h2{font-size:18px;margin:24px 0 12px;font-weight:600}
+  h3{font-size:14px;margin:0 0 10px;font-weight:600}
+  .sub{color:var(--muted);font-size:13px}
+  .meta{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;font-size:12px;color:var(--muted)}
+  .meta b{color:var(--text);font-weight:500}
+  .badge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;color:white;font-weight:500}
+  .b-on{background:var(--green)}
+  .b-off{background:#475569}
+  .b-err{background:var(--red)}
+
+  /* Snapshot Cards */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:22px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px}
+  .card .label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+  .card .num{font-size:30px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+  .card .delta{font-size:12px;color:var(--muted);margin-top:6px}
+  .card .delta.up{color:var(--green)}
+  .card .delta.down{color:var(--red)}
+  .card.nda .num{color:var(--green)}
+  .card.nda.warn .num{color:var(--yellow)}
+  .card.nda.bad .num{color:var(--red)}
+
+  /* Chart Cards */
+  .chart-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;margin-bottom:14px}
+  .chart-card .ch-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+  .chart-card canvas{max-height:300px}
+
+  /* Charts row */
+  .row-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+  @media(max-width:780px){.row-2{grid-template-columns:1fr}}
+
+  /* Table */
+  .tbl-wrap{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px}
+  table{width:100%;border-collapse:collapse;font-size:12px}
+  th,td{padding:8px 10px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+  th{color:var(--muted);font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+  td{font-variant-numeric:tabular-nums}
+  td.file{font-family:"SF Mono","Consolas",monospace;font-size:11px;color:#cbd5e1;cursor:pointer;user-select:none}
+  td.file:hover{color:var(--accent)}
+  .tag{display:inline-block;padding:1px 6px;border-radius:3px;font-size:10px;background:#ef444433;color:#fca5a5;margin-right:4px}
+  .snippet-row{display:none}
+  .snippet-row.open{display:table-row}
+  .snippet-row td{background:#0a0e16;padding:0}
+  .snippet-list{padding:8px 16px;max-height:340px;overflow-y:auto}
+  .snippet{padding:6px 0;border-bottom:1px solid var(--border);font-family:"SF Mono","Consolas",monospace;font-size:11px;line-height:1.55}
+  .snippet:last-child{border-bottom:none}
+  .snip-line{color:var(--muted);display:inline-block;width:50px}
+  .snip-pat{display:inline-block;padding:0 5px;border-radius:3px;background:#ef444433;color:#fca5a5;font-size:10px;margin-right:6px}
+  .snip-match{color:var(--red);font-weight:600;background:#ef444422;padding:0 3px;border-radius:2px}
+  .snip-ctx{color:#94a3b8;margin-left:8px;font-style:italic}
+  .arrow-tog{display:inline-block;width:12px;color:var(--muted);transition:transform .15s}
+  td.file.open .arrow-tog{transform:rotate(90deg)}
+
+  /* Empty / Error */
+  .empty{padding:40px;text-align:center;color:var(--muted);background:var(--card);border:1px dashed var(--border);border-radius:12px}
+  .empty code{background:#0a0e16;padding:2px 7px;border-radius:4px;color:var(--accent);font-size:12px}
+
+  /* Source Strip */
+  .sources{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+  .src{display:flex;align-items:center;gap:6px;padding:5px 10px;background:#0a0e16;border:1px solid var(--border);border-radius:6px;font-size:11px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1 style="margin:0 0 2px">📊 Brandon Tung 資安自媒體</h1>
+  <div class="tagline" style="font-size:14px;color:var(--accent);font-style:italic;margin:0 0 6px;letter-spacing:.3px">Agents, grown on the ops floor.</div>
+  <div class="sub">自媒體成效 + NDA 自查全自動儀表板 / Auto-collected daily, zero-click view</div>
+  <div class="meta">
+    <span>Owner: <b>Brandon Tung</b></span>
+    <span>Site: <b>imbrandontung.mintlify.app</b></span>
+    <span>Last run: <b id="lastRun">—</b></span>
+    <span>Schedule: <b>Daily 09:01 (Cowork)</b></span>
+  </div>
+  <div class="sources" id="sources"></div>
+</header>
+
+<div id="root"></div>
+
+</div>
+
+<script>
+// ============ Render ============
+const root = document.getElementById("root");
+const D = window.BRAND_DATA;
+
+// NDA_PATTERN_DEFS hoisted here (was at line ~514) — const has TDZ, must be declared
+// BEFORE the orchestration forEach below calls renderNdaChecklist.
+const NDA_PATTERN_DEFS = [
+  {key:"IP-Private", zh:"私有 IP 位址", en:"Private IP address",
+   detect:"10.x / 192.168.x / 172.16-31.x", risk:"中",
+   reason:"洩漏內網拓撲，可被反查網段。"},
+  {key:"IP-Public", zh:"公網 IP 位址", en:"Public IP address",
+   detect:"任何非私有 / 非 loopback IPv4", risk:"高",
+   reason:"可能對應客戶或公司公開服務 IP，違反 NDA。"},
+  {key:"Email-Internal", zh:"企業內部信箱", en:"Internal corporate email",
+   detect:"非公開信箱網域 (排除 gmail / outlook 等)", risk:"高",
+   reason:"可推斷客戶名稱與聯絡人。"},
+  {key:"Hostname-Pattern", zh:"主機命名規則", en:"Internal hostname pattern",
+   detect:"如 ABC-SRV-01 / DSC-FW-12", risk:"高",
+   reason:"洩漏資產命名慣例，協助攻擊者偵察。"},
+  {key:"Project-Code", zh:"專案 / 案件編號", en:"Project / case code",
+   detect:"PRJ-xxxx / CASE-xxxx / JIRA-xxxx", risk:"中",
+   reason:"可關聯到客戶實際專案。"},
+  {key:"Contract-No", zh:"合約 / 採購單號", en:"Contract / PO number",
+   detect:"合約 / contract / PO + 4 位以上數字", risk:"高",
+   reason:"商業敏感資訊，涉及金額與履約。"},
+  {key:"NDA-Trigger", zh:"NDA 標記字串", en:"NDA marker keyword",
+   detect:"機密 / [CONFIDENTIAL] / DO NOT DISTRIBUTE 等", risk:"高",
+   reason:"明確標記為禁止外流的內容。"}
+];
+
+if(!D){
+  root.innerHTML = `
+    <div class="empty">
+      <h2 style="color:var(--yellow)">⚠️ 尚未產生 brand_data.js</h2>
+      <p>請手動跑一次收集器：</p>
+      <code>python3 daily_collector.py</code>
+      <p style="margin-top:14px">或等待 Cowork 排程於每日 09:01 自動執行。</p>
+      <p class="sub">First-time setup: run the collector once or wait for the daily 09:01 scheduled task.</p>
+    </div>`;
+} else {
+  document.getElementById("lastRun").textContent = D.last_run_local || D.last_run || "—";
+  // Each renderer in its own try/catch — one failure (e.g. Chart.js blocked by CSP)
+  // must NOT prevent the NDA tables / scanned files checklist from rendering.
+  [
+    ["renderSourceStrip", renderSourceStrip],
+    ["renderSnapshot",    renderSnapshot],
+    ["renderCharts",      renderCharts],
+    ["renderArticleVoiceRank", renderArticleVoiceRank],
+    ["renderNdaTable",    renderNdaTable],
+    ["renderNdaChecklist",renderNdaChecklist],
+    ["renderScannedFilesChecklist", renderScannedFilesChecklist],
+  ].forEach(([name, fn]) => {
+    try { fn(D); }
+    catch(e){
+      console.error("[Dashboard] "+name+" failed:", e);
+      root.insertAdjacentHTML("beforeend",
+        '<div class="empty" style="border-color:var(--red);color:var(--red);margin:8px 0">'
+        + '⚠️ ' + name + ' 渲染失敗：' + (e && e.message ? e.message : String(e))
+        + ' (typeof Chart=' + typeof Chart + ')</div>');
+    }
+  });
+}
+
+// ---------- Source strip ----------
+function badge(kind){return `<span class="badge ${kind==='on'?'b-on':kind==='err'?'b-err':'b-off'}">${kind==='on'?'ON':kind==='err'?'ERR':'OFF'}</span>`;}
+function srcStatus(obj){
+  if(!obj) return "off";
+  if(obj.skipped) return "off";
+  if(obj.error) return "err";
+  if(obj.fetched) return "on";
+  return "off";
+}
+function renderSourceStrip(d){
+  const latest = d.metrics[d.metrics.length-1] || {};
+  const items = [
+    {name:"GitHub", obj:latest.github},
+    {name:"Mintlify", obj:latest.mintlify},
+    {name:"Cloudflare", obj:latest.cloudflare},
+    {name:"LinkedIn", obj:latest.linkedin},
+    {name:"Agent", obj:latest.agent}
+  ];
+  document.getElementById("sources").innerHTML = items.map(i=>
+    `<div class="src">${badge(srcStatus(i.obj))} ${i.name}</div>`).join("");
+}
+
+// ---------- Snapshot cards ----------
+function fmtDelta(curr, prev, suffix){
+  if(prev == null || curr == null) return "";
+  const d = curr - prev;
+  if(d === 0) return `<div class="delta">→ 持平 vs 昨日</div>`;
+  const cls = d > 0 ? "up" : "down";
+  return `<div class="delta ${cls}">${d>0?'▲':'▼'} ${Math.abs(d)}${suffix||''} vs 昨日</div>`;
+}
+function getNum(o, ...path){
+  for(const p of path){ if(o==null) return 0; o=o[p]; }
+  return o ?? 0;
+}
+function renderSnapshot(d){
+  const m = d.metrics;
+  const n = d.nda;
+  const today = m[m.length-1] || {};
+  const yesterday = m[m.length-2] || {};
+  const ndaToday = n[n.length-1] || {};
+  const ndaPrev = n[n.length-2] || {};
+
+  const ndaCls = ndaToday.hits === 0 ? "" : (ndaToday.hits <= 5 ? "warn" : "bad");
+  const cardsHtml = `
+    <div class="cards">
+      <div class="card nda ${ndaCls}">
+        <div class="label">🛡️ NDA 命中數 / Today</div>
+        <div class="num">${ndaToday.hits ?? "—"}</div>
+        <div class="sub">掃描 ${ndaToday.files_scanned ?? 0} 檔 · ${ndaToday.files_with_hits ?? 0} 檔有命中</div>
+        ${fmtDelta(ndaToday.hits, ndaPrev.hits, "")}
+      </div>
+      <div class="card">
+        <div class="label">⭐ GitHub Stars</div>
+        <div class="num">${getNum(today,"github","stars")}</div>
+        <div class="sub">${getNum(today,"github","public_repos")} repos · ${getNum(today,"github","followers")} followers</div>
+        ${fmtDelta(getNum(today,"github","stars"), getNum(yesterday,"github","stars"))}
+      </div>
+      <div class="card">
+        <div class="label">📄 Mintlify Pages</div>
+        <div class="num">${getNum(today,"mintlify","page_count")}</div>
+        <div class="sub">sitemap.xml</div>
+        ${fmtDelta(getNum(today,"mintlify","page_count"), getNum(yesterday,"mintlify","page_count"))}
+      </div>
+      <div class="card">
+        <div class="label">☁️ Cloudflare Visits</div>
+        <div class="num">${getNum(today,"cloudflare","visits") || "—"}</div>
+        <div class="sub">${(today.cloudflare && today.cloudflare.skipped) ? "需設 Cloudflare API token" : `${getNum(today,"cloudflare","visitors")} visitors · ${getNum(today,"cloudflare","pageviews")} pv`}</div>
+      </div>
+      <div class="card">
+        <div class="label">💼 LinkedIn Followers</div>
+        <div class="num">${getNum(today,"linkedin","followers") || "—"}</div>
+        <div class="sub">${(today.linkedin && today.linkedin.skipped) ? "需設 OAuth token" : ""}</div>
+      </div>
+      <div class="card">
+        <div class="label">🤖 Agent 報到 / Today</div>
+        <div class="num">${(today.agent && today.agent.fetched) ? today.agent.today_total : "—"}</div>
+        <div class="sub">${
+          (today.agent && today.agent.skipped) ? "需設 agent_endpoint_url + admin_token"
+          : (today.agent && today.agent.error) ? `Error: ${String(today.agent.error).slice(0,40)}`
+          : (today.agent && today.agent.fetched) ? (
+              Object.keys(today.agent.by_agent || {}).length
+                ? Object.entries(today.agent.by_agent).map(([k,v])=>`${k}:${v}`).join(" · ")
+                : "今日尚無 agent 報到"
+            )
+          : "—"
+        }</div>
+        ${(today.agent && today.agent.fetched) ? fmtDelta(today.agent.today_total, getNum(yesterday,"agent","today_total")) : ""}
+      </div>
+    </div>`;
+  root.insertAdjacentHTML("beforeend", cardsHtml);
+}
+
+// ---------- Charts ----------
+// Tiny inline SVG line + bar chart helpers — used when Chart.js is unavailable
+// (e.g. Cowork preview CSP blocks external CDNs). Pure SVG, no deps.
+function svgLineChart(series, labels, opts){
+  // series: [{name, data:[n,...], color}]; labels: [date,...]
+  const W=600, H=220, padL=44, padR=12, padT=14, padB=44;
+  const allVals = series.flatMap(s=>s.data);
+  const maxV = Math.max(1, ...allVals);
+  const n = labels.length;
+  const xStep = n<=1 ? 0 : (W-padL-padR)/(n-1);
+  const yScale = v => H-padB - (v/maxV)*(H-padT-padB);
+  const xPos = i => padL + i*xStep;
+  const grid = [0, .25, .5, .75, 1].map(p=>{
+    const y = padT + p*(H-padT-padB);
+    const v = Math.round(maxV*(1-p));
+    return `<line x1="${padL}" y1="${y}" x2="${W-padR}" y2="${y}" stroke="#2a3142" stroke-dasharray="2,3"/>
+            <text x="${padL-6}" y="${y+3}" fill="#8b95a7" font-size="10" text-anchor="end">${v}</text>`;
+  }).join("");
+  const xLabels = labels.map((l,i)=>
+    `<text x="${xPos(i)}" y="${H-padB+16}" fill="#8b95a7" font-size="10" text-anchor="middle">${l}</text>`).join("");
+  const lines = series.map(s=>{
+    const pts = s.data.map((v,i)=>`${xPos(i)},${yScale(v)}`).join(" ");
+    const dots = s.data.map((v,i)=>`<circle cx="${xPos(i)}" cy="${yScale(v)}" r="3.5" fill="${s.color}"/>`).join("");
+    return `<polyline points="${pts}" fill="none" stroke="${s.color}" stroke-width="2"/>${dots}`;
+  }).join("");
+  const legend = series.map((s,i)=>
+    `<g transform="translate(${padL+i*120},${H-6})"><rect width="10" height="3" y="-3" fill="${s.color}"/><text x="14" y="0" fill="#e6e9ef" font-size="11">${s.name}</text></g>`).join("");
+  return `<svg viewBox="0 0 ${W} ${H+18}" width="100%" style="max-height:260px">${grid}${xLabels}${lines}${legend}${opts && opts.yLabel?`<text x="10" y="${(H)/2}" fill="#8b95a7" font-size="10" transform="rotate(-90 10,${(H)/2})">${opts.yLabel}</text>`:""}</svg>`;
+}
+function svgBarChart(labels, values, colors){
+  const W=600, H=240, padL=24, padR=12, padT=14, padB=70;
+  const maxV = Math.max(1, ...values);
+  const n = labels.length;
+  const bw = (W-padL-padR) / n * 0.65;
+  const gap = (W-padL-padR) / n;
+  const yScale = v => H-padB - (v/maxV)*(H-padT-padB);
+  const grid = [0, .5, 1].map(p=>{
+    const y = padT + p*(H-padT-padB);
+    const v = Math.round(maxV*(1-p));
+    return `<line x1="${padL}" y1="${y}" x2="${W-padR}" y2="${y}" stroke="#2a3142" stroke-dasharray="2,3"/>
+            <text x="${padL-6}" y="${y+3}" fill="#8b95a7" font-size="10" text-anchor="end">${v}</text>`;
+  }).join("");
+  const bars = values.map((v,i)=>{
+    const x = padL + i*gap + (gap-bw)/2;
+    const y = yScale(v);
+    return `<rect x="${x}" y="${y}" width="${bw}" height="${H-padB-y}" fill="${colors[i%colors.length]}" rx="2"/>
+            <text x="${x+bw/2}" y="${y-4}" fill="#e6e9ef" font-size="10" text-anchor="middle">${v}</text>`;
+  }).join("");
+  const xLabels = labels.map((l,i)=>{
+    const cx = padL + i*gap + gap/2;
+    return `<text x="${cx}" y="${H-padB+14}" fill="#8b95a7" font-size="9" text-anchor="end" transform="rotate(-35 ${cx},${H-padB+14})">${l}</text>`;
+  }).join("");
+  return `<svg viewBox="0 0 ${W} ${H}" width="100%" style="max-height:260px">${grid}${bars}${xLabels}</svg>`;
+}
+
+function renderCharts(d){
+  const html = `
+    <h2>📈 趨勢圖表 / Trends</h2>
+    <div class="chart-card">
+      <div class="ch-head"><h3>NDA 風險命中走勢 / NDA Risk Hits Over Time</h3><span class="sub">${d.nda.length} 筆</span></div>
+      <div id="chartNdaBox"><canvas id="chartNda"></canvas></div>
+    </div>
+    <div class="row-2">
+      <div class="chart-card">
+        <div class="ch-head"><h3>GitHub 成長 / GitHub Growth</h3></div>
+        <div id="chartGhBox"><canvas id="chartGh"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="ch-head"><h3>Mintlify 頁數成長 / Mintlify Pages</h3></div>
+        <div id="chartContentBox"><canvas id="chartContent"></canvas></div>
+      </div>
+    </div>
+    <div class="row-2">
+      <div class="chart-card">
+        <div class="ch-head"><h3>Cloudflare 流量 + LinkedIn 互動 / Traffic & Engagement</h3></div>
+        <div id="chartEngageBox"><canvas id="chartEngage"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="ch-head"><h3>NDA 命中模式分布 (今日) / Pattern Breakdown Today</h3></div>
+        <div id="chartPatternBox"><canvas id="chartPattern"></canvas></div>
+      </div>
+    </div>`;
+  root.insertAdjacentHTML("beforeend", html);
+
+  // SVG fallback path: Chart.js unavailable (Cowork preview CSP, offline, etc.)
+  if(typeof Chart === "undefined"){
+    const ndaLabels = d.nda.map(x=>x.date);
+    document.getElementById("chartNdaBox").innerHTML = svgLineChart(
+      [{name:"Total hits", data:d.nda.map(x=>x.hits||0), color:"#ef4444"}],
+      ndaLabels, {yLabel:"命中項數 (越低越安全)"});
+    const mLabels = d.metrics.map(x=>x.date);
+    document.getElementById("chartGhBox").innerHTML = svgLineChart([
+      {name:"Followers", data:d.metrics.map(x=>getNum(x,"github","followers")), color:"#a855f7"},
+      {name:"Stars",     data:d.metrics.map(x=>getNum(x,"github","stars")),     color:"#f59e0b"},
+      {name:"Repos",     data:d.metrics.map(x=>getNum(x,"github","public_repos")), color:"#22c55e"},
+    ], mLabels);
+    document.getElementById("chartContentBox").innerHTML = svgLineChart(
+      [{name:"Mintlify pages", data:d.metrics.map(x=>getNum(x,"mintlify","page_count")), color:"#7c3aed"}],
+      mLabels);
+    document.getElementById("chartEngageBox").innerHTML = svgLineChart([
+      {name:"CF Visits",    data:d.metrics.map(x=>getNum(x,"cloudflare","visits")),    color:"#f6821f"},
+      {name:"CF Pageviews", data:d.metrics.map(x=>getNum(x,"cloudflare","pageviews")), color:"#f59e0b"},
+      {name:"LinkedIn",     data:d.metrics.map(x=>getNum(x,"linkedin","followers")),   color:"#0a66c2"},
+    ], mLabels);
+    const today = d.nda[d.nda.length-1] || {};
+    const patterns = today.by_pattern || {};
+    document.getElementById("chartPatternBox").innerHTML = svgBarChart(
+      Object.keys(patterns),
+      Object.values(patterns),
+      ["#ef4444","#f59e0b","#a855f7","#06b6d4","#10b981","#fbbf24","#0a66c2"]);
+    return;
+  }
+
+  const baseOpts = (yLabel)=>({
+    responsive:true, maintainAspectRatio:false,
+    plugins:{legend:{labels:{color:"#e6e9ef"}}},
+    scales:{
+      y:{beginAtZero:true, ticks:{color:"#8b95a7"}, grid:{color:"#2a3142"}, title:{display:!!yLabel,text:yLabel,color:"#8b95a7"}},
+      x:{ticks:{color:"#8b95a7"}, grid:{color:"#2a3142"}}
+    }
+  });
+  const lineDs = (lab,data,color)=>({label:lab,data,borderColor:color,backgroundColor:color+"22",tension:.25,fill:false,pointRadius:3});
+
+  // Chart 1: NDA hits
+  new Chart(document.getElementById("chartNda"),{
+    type:"line",
+    data:{labels:d.nda.map(x=>x.date),datasets:[
+      {label:"Total hits",data:d.nda.map(x=>x.hits),borderColor:"#ef4444",backgroundColor:"#ef444433",tension:.25,fill:true,pointRadius:5}
+    ]},
+    options: baseOpts("命中項數 (越低越安全)")
+  });
+
+  // Chart 2: GitHub growth
+  new Chart(document.getElementById("chartGh"),{
+    type:"line",
+    data:{labels:d.metrics.map(x=>x.date),datasets:[
+      lineDs("Followers",d.metrics.map(x=>getNum(x,"github","followers")),"#a855f7"),
+      lineDs("Stars",d.metrics.map(x=>getNum(x,"github","stars")),"#f59e0b"),
+      lineDs("Repos",d.metrics.map(x=>getNum(x,"github","public_repos")),"#22c55e")
+    ]},
+    options: baseOpts()
+  });
+
+  // Chart 3: Content (Mintlify only)
+  new Chart(document.getElementById("chartContent"),{
+    type:"line",
+    data:{labels:d.metrics.map(x=>x.date),datasets:[
+      lineDs("Mintlify pages",d.metrics.map(x=>getNum(x,"mintlify","page_count")),"#7c3aed")
+    ]},
+    options: baseOpts()
+  });
+
+  // Chart 4: Cloudflare traffic + LinkedIn engagement
+  new Chart(document.getElementById("chartEngage"),{
+    type:"line",
+    data:{labels:d.metrics.map(x=>x.date),datasets:[
+      lineDs("CF Visits",d.metrics.map(x=>getNum(x,"cloudflare","visits")),"#f6821f"),
+      lineDs("CF Visitors",d.metrics.map(x=>getNum(x,"cloudflare","visitors")),"#fbbf24"),
+      lineDs("CF Pageviews",d.metrics.map(x=>getNum(x,"cloudflare","pageviews")),"#f59e0b"),
+      lineDs("LinkedIn Followers",d.metrics.map(x=>getNum(x,"linkedin","followers")),"#0a66c2")
+    ]},
+    options: baseOpts()
+  });
+
+  // Chart 5: NDA pattern breakdown today
+  const today = d.nda[d.nda.length-1] || {};
+  const patterns = today.by_pattern || {};
+  const labels = Object.keys(patterns);
+  const counts = Object.values(patterns);
+  new Chart(document.getElementById("chartPattern"),{
+    type:"bar",
+    data:{labels,datasets:[
+      {label:"Hits",data:counts,backgroundColor:["#ef4444","#f59e0b","#a855f7","#06b6d4","#10b981","#fbbf24","#0a66c2"]}
+    ]},
+    options: {...baseOpts(), plugins:{legend:{display:false}}}
+  });
+}
+
+// ---------- Article Voice Ranking (between Trends and NDA detail) ----------
+function renderArticleVoiceRank(d){
+  const a = d.articles || {};
+  const ranked = a.ranked || [];
+  const formula = a.score_formula || "";
+  const note = a.score_note || "";
+  const asOf = a.as_of || "—";
+  const maxScore = ranked.reduce((m,x)=>Math.max(m, x.score||0), 1);
+  const fmtDate = iso => (iso||"").slice(0,10);
+
+  const rows = ranked.length === 0
+    ? '<tr><td colspan="8" style="padding:18px;text-align:center;color:var(--muted)">' +
+      '尚未產生 articles 排名（等下次 collector 加 articles 欄位） / Articles ranking pending next collector run' +
+      '</td></tr>'
+    : ranked.map(x => {
+        const pct = Math.round(((x.score||0) / maxScore) * 100);
+        const medal = x.rank === 1 ? '🥇' : x.rank === 2 ? '🥈' : x.rank === 3 ? '🥉' : '';
+        const rankCell = medal
+          ? '<span style="font-size:14px">' + medal + '</span> <b>' + x.rank + '</b>'
+          : '<b>' + x.rank + '</b>';
+        return '<tr>'
+          + '<td style="text-align:center;width:56px">' + rankCell + '</td>'
+          + '<td><b>' + escHtml(x.title || x.file) + '</b><br>'
+          +    '<span class="sub" style="font-family:&quot;SF Mono&quot;,Consolas,monospace;font-size:10px">' + escHtml(x.file) + '</span></td>'
+          + '<td style="width:72px;text-align:center;font-variant-numeric:tabular-nums"><b style="color:var(--accent)">' + (x.score||0) + '</b></td>'
+          + '<td style="width:140px">'
+          +   '<div style="background:#0a0e16;border-radius:3px;height:8px;overflow:hidden">'
+          +   '<div style="background:linear-gradient(90deg,#4d9eff,#a855f7);height:100%;width:' + pct + '%"></div></div>'
+          +   '<span class="sub" style="font-size:10px">' + pct + '% of leader</span></td>'
+          + '<td style="width:64px;text-align:center;font-variant-numeric:tabular-nums">' + (x.lines||0) + '</td>'
+          + '<td style="width:64px;text-align:center;font-variant-numeric:tabular-nums">' + (x.headings||0) + '</td>'
+          + '<td style="width:64px;text-align:center;font-variant-numeric:tabular-nums">' + (x.code_blocks||0) + '</td>'
+          + '<td style="width:96px;text-align:center;font-variant-numeric:tabular-nums" class="sub">' + fmtDate(x.last_modified) + '</td>'
+          + '</tr>';
+      }).join("");
+
+  const top3Names = ranked.slice(0,3).map(x => '<b>' + escHtml(x.title||x.file) + '</b>').join(' · ') || '—';
+
+  const html =
+    '<h2>📣 文章累計聲量排行 / Article Voice Ranking</h2>'
+    + '<div class="sub" style="margin-bottom:10px">' + escHtml(note)
+    +   '<br>計分公式 / Formula: <code style="color:var(--accent);font-size:11px">' + escHtml(formula) + '</code>'
+    +   ' · 統計截至 / As of: <b>' + escHtml(asOf) + '</b></div>'
+    + '<div class="tbl-wrap" style="margin-bottom:14px">'
+    + '<table>'
+    + '<thead><tr>'
+    +   '<th style="text-align:center">#</th>'
+    +   '<th>文章 / Article</th>'
+    +   '<th style="text-align:center">聲量分 / Score</th>'
+    +   '<th>強度 / Intensity</th>'
+    +   '<th style="text-align:center">行數 / Lines</th>'
+    +   '<th style="text-align:center">標題 / H</th>'
+    +   '<th style="text-align:center">程式碼 / Code</th>'
+    +   '<th style="text-align:center">更新 / Updated</th>'
+    + '</tr></thead>'
+    + '<tbody>' + rows + '</tbody>'
+    + '<tfoot><tr><td colspan="8" style="padding:12px;text-align:center;background:#0a0e16;border-top:2px solid var(--border)">'
+    + '<b>Top 3: </b>' + top3Names
+    + '</td></tr></tfoot>'
+    + '</table>'
+    + '</div>';
+  root.insertAdjacentHTML("beforeend", html);
+}
+
+// ---------- NDA table ----------
+function renderNdaTable(d){
+  const today = d.nda[d.nda.length-1] || {};
+  const files = today.by_file || [];
+  const scanned = today.scanned_files || [];
+  const html = `
+    <h2>🛡️ 今日 NDA 掃描明細 / Today's NDA File-by-File Detail</h2>
+    <div class="sub" style="margin-bottom:8px">點檔名展開命中行號與上下文（綠色 = 全 7 規則 PASS） / Click filename to expand line numbers + context (green = all 7 rules PASS)</div>
+    <div class="tbl-wrap">
+      ${files.length === 0 && scanned.length === 0 ?
+        `<div style="padding:20px;text-align:center;color:var(--green)">✅ 全部 ${today.files_scanned||0} 個檔案乾淨，無 NDA 風險命中。<br><span class="sub">All ${today.files_scanned||0} scanned files are clean.</span></div>` :
+        `<table>
+          <thead><tr><th>File</th><th style="width:80px">Total</th><th>Patterns Hit / Result</th></tr></thead>
+          <tbody>
+            ${files.map((f,idx)=>`
+              <tr>
+                <td class="file" onclick="toggleSnip(${idx})" id="file-${idx}"><span class="arrow-tog">▶</span> ${escHtml(f.file)}</td>
+                <td><b>${f.total}</b></td>
+                <td>${f.hits.map(h=>`<span class="tag">${escHtml(h.pattern)} ×${h.count}</span>`).join("")}</td>
+              </tr>
+              <tr class="snippet-row" id="snip-${idx}"><td colspan="3">
+                <div class="snippet-list">
+                  ${(f.snippets||[]).length === 0 ? '<div style="padding:8px;color:var(--muted)">(舊資料無 snippet — 等明日 collector 重跑後即可顯示)</div>' :
+                    f.snippets.map(s=>`<div class="snippet">
+                      <span class="snip-line">L${s.line}</span>
+                      <span class="snip-pat">${escHtml(s.pattern)}</span>
+                      <span class="snip-match">${escHtml(s.match)}</span>
+                      <span class="snip-ctx">…${escHtml(s.context)}…</span>
+                    </div>`).join("")}
+                </div>
+              </td></tr>
+            `).join("")}
+            ${scanned.filter(sf => !files.some(f => f.file === sf)).map(sf => `
+              <tr>
+                <td class="file" style="color:var(--green);cursor:default"><span style="display:inline-block;width:12px;color:var(--green)">✓</span> ${escHtml(sf)}</td>
+                <td><b style="color:var(--green)">0</b></td>
+                <td><span class="badge b-on">PASS</span> <span class="sub">all 7 rules clean</span></td>
+              </tr>
+            `).join("")}
+          </tbody>
+          <tfoot><tr><td colspan="3" style="padding:10px 12px;background:#0a0e16;border-top:2px solid var(--border);text-align:center">
+            <b>共掃 ${today.files_scanned||scanned.length} 檔 / Scanned ${today.files_scanned||scanned.length} files</b> ·
+            ${files.length>0?`<span style="color:var(--red)">${files.length} FAIL</span> · `:''}
+            <span style="color:var(--green)">${(today.files_scanned||scanned.length)-files.length} PASS</span>
+          </td></tr></tfoot>
+        </table>`}
+    </div>`;
+  root.insertAdjacentHTML("beforeend", html);
+}
+
+function toggleSnip(idx){
+  document.getElementById("file-"+idx).classList.toggle("open");
+  document.getElementById("snip-"+idx).classList.toggle("open");
+}
+
+// ---------- NDA Pattern Checklist (Appendix) ----------
+// (NDA_PATTERN_DEFS moved to top of script — see comment near line 107.)
+
+function renderNdaChecklist(d){
+  const today = d.nda[d.nda.length-1] || {};
+  const byPat = today.by_pattern || {};
+  const filesScanned = today.files_scanned || 0;
+  const totalHits = today.hits || 0;
+
+  const rows = NDA_PATTERN_DEFS.map((p, idx) => {
+    const hits = byPat[p.key] || 0;
+    const pass = hits === 0;
+    const statusBadge = pass
+      ? '<span class="badge b-on">PASS</span>'
+      : '<span class="badge b-err">FAIL &times;' + hits + '</span>';
+    const riskColor = p.risk === "高" ? "var(--red)" : (p.risk === "中" ? "var(--yellow)" : "var(--muted)");
+    return '<tr>'
+      + '<td style="text-align:center;color:var(--muted)">' + (idx+1) + '</td>'
+      + '<td><b>' + escHtml(p.key) + '</b><br><span class="sub">' + escHtml(p.zh) + ' / ' + escHtml(p.en) + '</span></td>'
+      + '<td><code style="font-size:11px;color:#cbd5e1">' + escHtml(p.detect) + '</code></td>'
+      + '<td style="color:' + riskColor + ';font-weight:600">' + escHtml(p.risk) + '</td>'
+      + '<td class="sub" style="font-size:11px">' + escHtml(p.reason) + '</td>'
+      + '<td style="text-align:center;font-variant-numeric:tabular-nums"><b>' + hits + '</b></td>'
+      + '<td style="text-align:center">' + statusBadge + '</td>'
+      + '</tr>';
+  }).join("");
+
+  const overall = totalHits === 0
+    ? '<span class="badge b-on">ALL PASS</span> 所有 7 項檢查通過 / All 7 checks passed'
+    : '<span class="badge b-err">' + totalHits + ' HITS</span> 共 ' + totalHits + ' 項命中，請檢視上方明細';
+
+  const html =
+    '<h2>📋 附錄：NDA 檢查項目清單 / Appendix: NDA Check Items</h2>'
+    + '<div class="sub" style="margin-bottom:10px">每日掃描 ' + filesScanned + ' 個檔案，套用以下 7 項規則 / Daily scan applies the 7 rules below to ' + filesScanned + ' files</div>'
+    + '<div class="tbl-wrap" style="margin-bottom:14px">'
+    + '<table>'
+    + '<thead><tr>'
+    +   '<th style="width:32px">#</th>'
+    +   '<th>檢查項目 / Pattern</th>'
+    +   '<th>偵測規則 / Detection</th>'
+    +   '<th style="width:48px">風險 / Risk</th>'
+    +   '<th>洩漏後果 / Why it matters</th>'
+    +   '<th style="width:64px;text-align:center">命中 / Hits</th>'
+    +   '<th style="width:90px;text-align:center">結果 / Result</th>'
+    + '</tr></thead>'
+    + '<tbody>' + rows + '</tbody>'
+    + '<tfoot><tr><td colspan="7" style="padding:12px;text-align:center;background:#0a0e16;border-top:2px solid var(--border)">'
+    + '<b>今日總結 / Overall Today: </b>' + overall
+    + '</td></tr></tfoot>'
+    + '</table>'
+    + '</div>';
+  root.insertAdjacentHTML("beforeend", html);
+}
+
+// ---------- Scanned Files Checklist (Final Appendix at the very end) ----------
+function renderScannedFilesChecklist(d){
+  const today = d.nda[d.nda.length-1] || {};
+  const scanned = today.scanned_files || [];
+  const failedSet = new Set((today.by_file || []).map(f => f.file));
+  const filesScanned = today.files_scanned || scanned.length;
+  const passCount = scanned.filter(sf => !failedSet.has(sf)).length;
+  const failCount = failedSet.size;
+
+  const rows = scanned.length === 0
+    ? '<tr><td colspan="4" style="padding:18px;text-align:center;color:var(--muted)">' +
+      '無 scanned_files 欄位（舊資料） / No scanned_files field (legacy data)' +
+      '</td></tr>'
+    : scanned.map((sf, idx) => {
+        const failed = failedSet.has(sf);
+        const badge = failed
+          ? '<span class="badge b-err">FAIL</span>'
+          : '<span class="badge b-on">PASS</span>';
+        const note = failed
+          ? '<span class="sub" style="color:var(--red)">命中 NDA 規則，見上方明細 / See detail above</span>'
+          : '<span class="sub">全 7 規則通過 / All 7 rules clean</span>';
+        return '<tr>'
+          + '<td style="text-align:center;color:var(--muted);width:40px">' + (idx+1) + '</td>'
+          + '<td style="font-family:&quot;SF Mono&quot;,Consolas,monospace;font-size:12px;color:#cbd5e1">' + escHtml(sf) + '</td>'
+          + '<td style="text-align:center;width:90px">' + badge + '</td>'
+          + '<td>' + note + '</td>'
+          + '</tr>';
+      }).join("");
+
+  const overall = failCount === 0
+    ? '<span class="badge b-on">ALL CLEAN</span> 全部 ' + passCount + ' 個檔案通過 / All ' + passCount + ' files passed'
+    : '<span class="badge b-err">' + failCount + ' FAIL</span> 共 ' + passCount + ' PASS · ' + failCount + ' FAIL';
+
+  const html =
+    '<h2>📁 已掃描檔案清單 / Scanned Files Checklist</h2>'
+    + '<div class="sub" style="margin-bottom:10px">列出今日 NDA 掃描覆蓋的全部 ' + filesScanned + ' 個 .md / .mdx 檔案 / All ' + filesScanned + ' files covered by today\'s NDA scan</div>'
+    + '<div class="tbl-wrap">'
+    + '<table>'
+    + '<thead><tr>'
+    +   '<th style="width:40px">#</th>'
+    +   '<th>檔案路徑 / File Path</th>'
+    +   '<th style="width:90px;text-align:center">結果 / Result</th>'
+    +   '<th>說明 / Note</th>'
+    + '</tr></thead>'
+    + '<tbody>' + rows + '</tbody>'
+    + '<tfoot><tr><td colspan="4" style="padding:12px;text-align:center;background:#0a0e16;border-top:2px solid var(--border)">'
+    + '<b>覆蓋總結 / Coverage: </b>' + overall
+    + '</td></tr></tfoot>'
+    + '</table>'
+    + '</div>';
+  root.insertAdjacentHTML("beforeend", html);
+}
+
+function escHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+</script>
+</body>
+</html>

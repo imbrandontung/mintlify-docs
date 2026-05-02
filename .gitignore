@@ -27,4 +27,4 @@ daily_collector.log
 daily_collector.log.1
 brand_data.js
 sample_data_7days.json
-# brand_data.jso
+# brand_data.json is now git-tracked for history preservation

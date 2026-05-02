@@ -1,0 +1,714 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - link [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+      - list [ref=e25]:
+        - listitem [ref=e26]:
+          - link "Documentation" [ref=e27] [cursor=pointer]:
+            - /url: /docs/home/
+        - listitem [ref=e28]:
+          - link "Kubernetes Blog" [ref=e29] [cursor=pointer]:
+            - /url: /blog/
+        - listitem [ref=e30]:
+          - link "Training" [ref=e31] [cursor=pointer]:
+            - /url: /training/
+        - listitem [ref=e32]:
+          - link "Careers" [ref=e33] [cursor=pointer]:
+            - /url: /careers/
+        - listitem [ref=e34]:
+          - link "Partners" [ref=e35] [cursor=pointer]:
+            - /url: /partners/
+        - listitem [ref=e36]:
+          - link "Community" [ref=e37] [cursor=pointer]:
+            - /url: /community/
+        - text:                        
+      - text:  
+    - heading "Patch Releases" [level=1] [ref=e41]
+  - generic [ref=e44]:
+    - complementary [ref=e45]:
+      - generic [ref=e46]:
+        - generic [ref=e47]:
+          - generic [ref=e48]:
+            - generic: 
+            - searchbox "Search this site" [ref=e49]
+          - text: 
+        - navigation [ref=e50]:
+          - list [ref=e51]:
+            - listitem [ref=e52]:
+              - list [ref=e53]:
+                - listitem [ref=e54]:
+                  - link "Download Kubernetes" [ref=e56] [cursor=pointer]:
+                    - /url: /releases/download/
+                - listitem [ref=e57]:
+                  - link "Kubernetes Release Cycle" [ref=e59] [cursor=pointer]:
+                    - /url: /releases/release/
+                - listitem [ref=e60]:
+                  - link "Patch Releases" [ref=e62] [cursor=pointer]:
+                    - /url: /releases/patch-releases/
+                - listitem [ref=e63]:
+                  - link "Release Managers" [ref=e65] [cursor=pointer]:
+                    - /url: /releases/release-managers/
+                - listitem [ref=e66]:
+                  - link "Release Notes" [ref=e68] [cursor=pointer]:
+                    - /url: /releases/notes/
+                - listitem [ref=e69]:
+                  - link "Version Skew Policy" [ref=e71] [cursor=pointer]:
+                    - /url: /releases/version-skew-policy/
+    - text:    
+    - main [ref=e73]:
+      - navigation "breadcrumb" [ref=e74]:
+        - list [ref=e75]:
+          - listitem [ref=e76]:
+            - link "Release History" [ref=e77] [cursor=pointer]:
+              - /url: https://kubernetes.io/releases/
+          - listitem [ref=e78]:
+            - text: /
+            - link "Patch Releases" [disabled]:
+              - /url: https://kubernetes.io/releases/patch-releases/
+      - generic [ref=e79]:
+        - heading "Patch Releases" [level=1] [ref=e80]
+        - paragraph [ref=e81]: Schedule and team contact information for Kubernetes patch releases.
+        - paragraph [ref=e82]:
+          - text: For general information about Kubernetes release cycle, see the
+          - link "release process description" [ref=e83] [cursor=pointer]:
+            - /url: /releases/release/
+          - text: .
+        - heading "Cadence" [level=2] [ref=e84]
+        - paragraph [ref=e85]: Our typical patch release cadence is monthly. It is commonly a bit faster (1 to 2 weeks) for the earliest patch releases after a 1.X minor release. Critical bug fixes may cause a more immediate release outside of the normal cadence. We also aim to not make releases during major holiday periods.
+        - heading "Contact" [level=2] [ref=e86]
+        - paragraph [ref=e87]:
+          - text: See the
+          - link "Release Managers page" [ref=e88] [cursor=pointer]:
+            - /url: /releases/release-managers/
+          - text: for full contact details on the Patch Release Team.
+        - paragraph [ref=e89]: Please give us a business day to respond - we may be in a different timezone!
+        - paragraph [ref=e90]:
+          - text: In between releases the team is looking at incoming cherry pick requests on a weekly basis. The team will get in touch with submitters via GitHub PR, SIG channels in Slack, and direct messages in Slack and
+          - link "email" [ref=e91] [cursor=pointer]:
+            - /url: mailto:release-managers-private@kubernetes.io
+          - text: if there are questions on the PR.
+        - heading "Cherry picks" [level=2] [ref=e92]
+        - paragraph [ref=e93]:
+          - text: Please follow the
+          - link "cherry pick process" [ref=e94] [cursor=pointer]:
+            - /url: https://github.com/kubernetes/community/blob/main/contributors/devel/sig-release/cherry-picks.md
+          - text: .
+        - paragraph [ref=e95]:
+          - text: Cherry picks must be merge-ready in GitHub with proper labels (e.g.,
+          - code [ref=e96]: approved
+          - text: ","
+          - code [ref=e97]: lgtm
+          - text: ","
+          - code [ref=e98]: release-note
+          - text: ) and passing CI tests ahead of the cherry pick deadline. This is typically two days before the target release, but may be more. Earlier PR readiness is better, as we need time to get CI signal after merging your cherry picks ahead of the actual release.
+        - paragraph [ref=e99]: Cherry pick PRs which miss merge criteria will be carried over and tracked for the next patch release.
+        - heading "Support Period" [level=2] [ref=e100]
+        - paragraph [ref=e101]:
+          - text: In accordance with the
+          - link "yearly support KEP" [ref=e102] [cursor=pointer]:
+            - /url: https://git.k8s.io/enhancements/keps/sig-release/1498-kubernetes-yearly-support-period/README.md
+          - text: ", the Kubernetes Community will support active patch release series for a period of roughly fourteen (14) months."
+        - paragraph [ref=e103]: The first twelve months of this timeframe will be considered the standard period.
+        - paragraph [ref=e104]: "Towards the end of the twelve month, the following will happen:"
+        - list [ref=e105]:
+          - listitem [ref=e106]:
+            - link "Release Managers" [ref=e107] [cursor=pointer]:
+              - /url: /releases/release-managers/
+            - text: will cut a release
+          - listitem [ref=e108]: The patch release series will enter maintenance mode
+        - paragraph [ref=e109]: "During the two-month maintenance mode period, Release Managers may cut additional maintenance releases to resolve:"
+        - list [ref=e110]:
+          - listitem [ref=e111]:
+            - link "Vulnerabilities" [ref=e112] [cursor=pointer]:
+              - /url: /docs/reference/issues-security/official-cve-feed/
+            - text: that have an assigned CVE ID (under the advisement of the Security Response Committee)
+          - listitem [ref=e113]: dependency issues (including base image updates)
+          - listitem [ref=e114]: critical core component issues
+        - paragraph [ref=e115]: At the end of the two-month maintenance mode period, the patch release series will be considered EOL (end of life) and cherry picks to the associated branch are to be closed soon afterwards.
+        - paragraph [ref=e116]: Note that the 28th of the month was chosen for maintenance mode and EOL target dates for simplicity (every month has it).
+        - heading "Upcoming Monthly Releases" [level=2] [ref=e117]
+        - paragraph [ref=e118]: Timelines may vary with the severity of bug fixes, but for easier planning we will target the following monthly release points. Unplanned, critical releases may also occur in between these.
+        - table [ref=e120]:
+          - rowgroup [ref=e121]:
+            - row "Monthly Patch Release Cherry Pick Deadline Target Date" [ref=e122]:
+              - columnheader "Monthly Patch Release" [ref=e123]
+              - columnheader "Cherry Pick Deadline" [ref=e124]
+              - columnheader "Target Date" [ref=e125]
+          - rowgroup [ref=e126]:
+            - row "April 2026 Apr 10, 2026 Apr 14, 2026" [ref=e127]:
+              - cell "April 2026" [ref=e128]
+              - cell "Apr 10, 2026" [ref=e129]:
+                - time [ref=e130]: Apr 10, 2026
+              - cell "Apr 14, 2026" [ref=e131]:
+                - time [ref=e132]: Apr 14, 2026
+            - row "May 2026 May 8, 2026 May 12, 2026" [ref=e133]:
+              - cell "May 2026" [ref=e134]
+              - cell "May 8, 2026" [ref=e135]:
+                - time [ref=e136]: May 8, 2026
+              - cell "May 12, 2026" [ref=e137]:
+                - time [ref=e138]: May 12, 2026
+            - row "June 2026 Jun 5, 2026 Jun 9, 2026" [ref=e139]:
+              - cell "June 2026" [ref=e140]
+              - cell "Jun 5, 2026" [ref=e141]:
+                - time [ref=e142]: Jun 5, 2026
+              - cell "Jun 9, 2026" [ref=e143]:
+                - time [ref=e144]: Jun 9, 2026
+        - heading "Detailed Release History for Active Branches" [level=2] [ref=e145]
+        - heading "1.36" [level=3] [ref=e146]
+        - paragraph [ref=e147]:
+          - text: Next patch release is
+          - strong [ref=e148]: 1.36.1
+          - text: .
+        - paragraph
+        - paragraph [ref=e149]:
+          - text: Kubernetes 1.36 enters maintenance mode on
+          - time [ref=e150]: Apr 28, 2027
+          - text: ; the End of Life date for Kubernetes 1.36 is
+          - time [ref=e151]: Jun 28, 2027
+          - text: .
+        - heading "1.35" [level=3] [ref=e152]
+        - paragraph [ref=e153]:
+          - text: Next patch release is
+          - strong [ref=e154]: 1.35.4
+          - text: .
+        - paragraph
+        - paragraph [ref=e155]:
+          - text: Kubernetes 1.35 enters maintenance mode on
+          - time [ref=e156]: Dec 28, 2026
+          - text: ; the End of Life date for Kubernetes 1.35 is
+          - time [ref=e157]: Feb 28, 2027
+          - text: .
+        - table [ref=e159]:
+          - rowgroup [ref=e160]:
+            - row "Patch Release Cherry Pick Deadline Target Date Note" [ref=e161]:
+              - columnheader "Patch Release" [ref=e162]
+              - columnheader "Cherry Pick Deadline" [ref=e163]
+              - columnheader "Target Date" [ref=e164]
+              - columnheader "Note" [ref=e165]
+          - rowgroup [ref=e166]:
+            - row "1.35.3 2026-03-13 2026-03-19" [ref=e167]:
+              - cell "1.35.3" [ref=e168]
+              - cell "2026-03-13" [ref=e169]:
+                - time [ref=e170]: 2026-03-13
+              - cell "2026-03-19" [ref=e171]:
+                - time [ref=e172]: 2026-03-19
+              - cell [ref=e173]
+            - row "1.35.2 2026-02-26 2026-02-26 Out of band patch release to pick up a new version of Go to address several Go CVEs. No other changes." [ref=e174]:
+              - cell "1.35.2" [ref=e175]
+              - cell "2026-02-26" [ref=e176]:
+                - time [ref=e177]: 2026-02-26
+              - cell "2026-02-26" [ref=e178]:
+                - time [ref=e179]: 2026-02-26
+              - cell "Out of band patch release to pick up a new version of Go to address several Go CVEs. No other changes." [ref=e180]:
+                - text: Out of band patch release to pick up a new version of Go to
+                - link "address several Go CVEs" [ref=e181] [cursor=pointer]:
+                  - /url: https://groups.google.com/g/golang-dev/c/ytMTMwK7QBk/m/hpcstrxADwAJ
+                - text: . No other changes.
+            - row "1.35.1 2026-02-06 2026-02-10 January 2026 patches consolidated with February" [ref=e182]:
+              - cell "1.35.1" [ref=e183]
+              - cell "2026-02-06" [ref=e184]:
+                - time [ref=e185]: 2026-02-06
+              - cell "2026-02-10" [ref=e186]:
+                - time [ref=e187]: 2026-02-10
+              - cell "January 2026 patches consolidated with February" [ref=e188]
+        - heading "1.34" [level=3] [ref=e189]
+        - paragraph [ref=e190]:
+          - text: Next patch release is
+          - strong [ref=e191]: 1.34.7
+          - text: .
+        - paragraph
+        - paragraph [ref=e192]:
+          - text: Kubernetes 1.34 enters maintenance mode on
+          - time [ref=e193]: Aug 27, 2026
+          - text: ; the End of Life date for Kubernetes 1.34 is
+          - time [ref=e194]: Oct 27, 2026
+          - text: .
+        - table [ref=e196]:
+          - rowgroup [ref=e197]:
+            - row "Patch Release Cherry Pick Deadline Target Date Note" [ref=e198]:
+              - columnheader "Patch Release" [ref=e199]
+              - columnheader "Cherry Pick Deadline" [ref=e200]
+              - columnheader "Target Date" [ref=e201]
+              - columnheader "Note" [ref=e202]
+          - rowgroup [ref=e203]:
+            - row "1.34.6 2026-03-13 2026-03-19" [ref=e204]:
+              - cell "1.34.6" [ref=e205]
+              - cell "2026-03-13" [ref=e206]:
+                - time [ref=e207]: 2026-03-13
+              - cell "2026-03-19" [ref=e208]:
+                - time [ref=e209]: 2026-03-19
+              - cell [ref=e210]
+            - row "1.34.5 2026-02-26 2026-02-26 Out of band patch release to pick up a new version of Go to address several Go CVEs. No other changes." [ref=e211]:
+              - cell "1.34.5" [ref=e212]
+              - cell "2026-02-26" [ref=e213]:
+                - time [ref=e214]: 2026-02-26
+              - cell "2026-02-26" [ref=e215]:
+                - time [ref=e216]: 2026-02-26
+              - cell "Out of band patch release to pick up a new version of Go to address several Go CVEs. No other changes." [ref=e217]:
+                - text: Out of band patch release to pick up a new version of Go to
+                - link "address several Go CVEs" [ref=e218] [cursor=pointer]:
+                  - /url: https://groups.google.com/g/golang-dev/c/ytMTMwK7QBk/m/hpcstrxADwAJ
+                - text: . No other changes.
+            - row "1.34.4 2026-02-06 2026-02-10 January 2026 patches consolidated with February" [ref=e219]:
+              - cell "1.34.4" [ref=e220]
+              - cell "2026-02-06" [ref=e221]:
+                - time [ref=e222]: 2026-02-06
+              - cell "2026-02-10" [ref=e223]:
+                - time [ref=e224]: 2026-02-10
+              - cell "January 2026 patches consolidated with February" [ref=e225]
+            - row "1.34.3 2025-12-05 2025-12-09" [ref=e226]:
+              - cell "1.34.3" [ref=e227]
+              - cell "2025-12-05" [ref=e228]:
+                - time [ref=e229]: 2025-12-05
+              - cell "2025-12-09" [ref=e230]:
+                - time [ref=e231]: 2025-12-09
+              - cell [ref=e232]
+            - row "1.34.2 2025-11-07 2025-11-11 October 2025 patches consolidated with November" [ref=e233]:
+              - cell "1.34.2" [ref=e234]
+              - cell "2025-11-07" [ref=e235]:
+                - time [ref=e236]: 2025-11-07
+              - cell "2025-11-11" [ref=e237]:
+                - time [ref=e238]: 2025-11-11
+              - cell "October 2025 patches consolidated with November" [ref=e239]
+            - row "1.34.1 2025-09-05 2025-09-09" [ref=e240]:
+              - cell "1.34.1" [ref=e241]
+              - cell "2025-09-05" [ref=e242]:
+                - time [ref=e243]: 2025-09-05
+              - cell "2025-09-09" [ref=e244]:
+                - time [ref=e245]: 2025-09-09
+              - cell [ref=e246]
+            - row "1.34.0 - 2025-08-27" [ref=e247]:
+              - cell "1.34.0" [ref=e248]
+              - cell "-" [ref=e249]
+              - cell "2025-08-27" [ref=e250]:
+                - time [ref=e251]: 2025-08-27
+              - cell [ref=e252]
+        - heading "1.33" [level=3] [ref=e253]
+        - paragraph
+        - paragraph
+        - paragraph
+        - paragraph [ref=e254]:
+          - text: ℹ️
+          - strong [ref=e255]:
+            - text: Kubernetes 1.33 entered maintenance mode on
+            - time [ref=e256]: Apr 28, 2026
+          - text: .
+        - paragraph [ref=e257]:
+          - text: The End of Life date for Kubernetes 1.33 is
+          - time [ref=e258]: Jun 28, 2026
+          - text: .
+        - paragraph
+        - table [ref=e260]:
+          - rowgroup [ref=e261]:
+            - row "Patch Release Cherry Pick Deadline Target Date Note" [ref=e262]:
+              - columnheader "Patch Release" [ref=e263]
+              - columnheader "Cherry Pick Deadline" [ref=e264]
+              - columnheader "Target Date" [ref=e265]
+              - columnheader "Note" [ref=e266]
+          - rowgroup [ref=e267]:
+            - row "1.33.10 2026-03-13 2026-03-19" [ref=e268]:
+              - cell "1.33.10" [ref=e269]
+              - cell "2026-03-13" [ref=e270]:
+                - time [ref=e271]: 2026-03-13
+              - cell "2026-03-19" [ref=e272]:
+                - time [ref=e273]: 2026-03-19
+              - cell [ref=e274]
+            - row "1.33.9 2026-02-26 2026-02-26 Out of band patch release to pick up a new version of Go to address several Go CVEs. No other changes." [ref=e275]:
+              - cell "1.33.9" [ref=e276]
+              - cell "2026-02-26" [ref=e277]:
+                - time [ref=e278]: 2026-02-26
+              - cell "2026-02-26" [ref=e279]:
+                - time [ref=e280]: 2026-02-26
+              - cell "Out of band patch release to pick up a new version of Go to address several Go CVEs. No other changes." [ref=e281]:
+                - text: Out of band patch release to pick up a new version of Go to
+                - link "address several Go CVEs" [ref=e282] [cursor=pointer]:
+                  - /url: https://groups.google.com/g/golang-dev/c/ytMTMwK7QBk/m/hpcstrxADwAJ
+                - text: . No other changes.
+            - row "1.33.8 2026-02-06 2026-02-10 January 2026 patches consolidated with February" [ref=e283]:
+              - cell "1.33.8" [ref=e284]
+              - cell "2026-02-06" [ref=e285]:
+                - time [ref=e286]: 2026-02-06
+              - cell "2026-02-10" [ref=e287]:
+                - time [ref=e288]: 2026-02-10
+              - cell "January 2026 patches consolidated with February" [ref=e289]
+            - row "1.33.7 2025-12-05 2025-12-09" [ref=e290]:
+              - cell "1.33.7" [ref=e291]
+              - cell "2025-12-05" [ref=e292]:
+                - time [ref=e293]: 2025-12-05
+              - cell "2025-12-09" [ref=e294]:
+                - time [ref=e295]: 2025-12-09
+              - cell [ref=e296]
+            - row "1.33.6 2025-11-07 2025-11-11 October 2025 patches consolidated with November" [ref=e297]:
+              - cell "1.33.6" [ref=e298]
+              - cell "2025-11-07" [ref=e299]:
+                - time [ref=e300]: 2025-11-07
+              - cell "2025-11-11" [ref=e301]:
+                - time [ref=e302]: 2025-11-11
+              - cell "October 2025 patches consolidated with November" [ref=e303]
+            - row "1.33.5 2025-09-05 2025-09-09" [ref=e304]:
+              - cell "1.33.5" [ref=e305]
+              - cell "2025-09-05" [ref=e306]:
+                - time [ref=e307]: 2025-09-05
+              - cell "2025-09-09" [ref=e308]:
+                - time [ref=e309]: 2025-09-09
+              - cell [ref=e310]
+            - row "1.33.4 2025-08-08 2025-08-12" [ref=e311]:
+              - cell "1.33.4" [ref=e312]
+              - cell "2025-08-08" [ref=e313]:
+                - time [ref=e314]: 2025-08-08
+              - cell "2025-08-12" [ref=e315]:
+                - time [ref=e316]: 2025-08-12
+              - cell [ref=e317]
+            - row "1.33.3 2025-07-11 2025-07-15" [ref=e318]:
+              - cell "1.33.3" [ref=e319]
+              - cell "2025-07-11" [ref=e320]:
+                - time [ref=e321]: 2025-07-11
+              - cell "2025-07-15" [ref=e322]:
+                - time [ref=e323]: 2025-07-15
+              - cell [ref=e324]
+            - row "1.33.2 2025-06-06 2025-06-17" [ref=e325]:
+              - cell "1.33.2" [ref=e326]
+              - cell "2025-06-06" [ref=e327]:
+                - time [ref=e328]: 2025-06-06
+              - cell "2025-06-17" [ref=e329]:
+                - time [ref=e330]: 2025-06-17
+              - cell [ref=e331]
+            - row "1.33.1 2025-05-09 2025-05-15" [ref=e332]:
+              - cell "1.33.1" [ref=e333]
+              - cell "2025-05-09" [ref=e334]:
+                - time [ref=e335]: 2025-05-09
+              - cell "2025-05-15" [ref=e336]:
+                - time [ref=e337]: 2025-05-15
+              - cell [ref=e338]
+        - heading "Non-Active Branch history" [level=2] [ref=e339]
+        - paragraph [ref=e340]: These releases are no longer supported.
+        - table [ref=e342]:
+          - rowgroup [ref=e343]:
+            - row "Minor Version Final Patch Release End Of Life Date Note" [ref=e344]:
+              - columnheader "Minor Version" [ref=e345]
+              - columnheader "Final Patch Release" [ref=e346]
+              - columnheader "End Of Life Date" [ref=e347]
+              - columnheader "Note" [ref=e348]
+          - rowgroup [ref=e349]:
+            - row "1.32 1.32.13 2026-02-28" [ref=e350]:
+              - cell "1.32" [ref=e351]:
+                - link "1.32" [ref=e352] [cursor=pointer]:
+                  - /url: /releases/1.32/
+              - cell "1.32.13" [ref=e353]
+              - cell "2026-02-28" [ref=e354]:
+                - time [ref=e355]: 2026-02-28
+              - cell [ref=e356]
+            - row "1.31 1.31.14 2025-11-11" [ref=e357]:
+              - cell "1.31" [ref=e358]:
+                - link "1.31" [ref=e359] [cursor=pointer]:
+                  - /url: /releases/1.31/
+              - cell "1.31.14" [ref=e360]
+              - cell "2025-11-11" [ref=e361]:
+                - time [ref=e362]: 2025-11-11
+              - cell [ref=e363]
+            - row "1.30 1.30.14 2025-07-15" [ref=e364]:
+              - cell "1.30" [ref=e365]:
+                - link "1.30" [ref=e366] [cursor=pointer]:
+                  - /url: /releases/1.30/
+              - cell "1.30.14" [ref=e367]
+              - cell "2025-07-15" [ref=e368]:
+                - time [ref=e369]: 2025-07-15
+              - cell [ref=e370]
+            - row "1.29 1.29.14 2025-02-28" [ref=e371]:
+              - cell "1.29" [ref=e372]:
+                - link "1.29" [ref=e373] [cursor=pointer]:
+                  - /url: /releases/1.29/
+              - cell "1.29.14" [ref=e374]
+              - cell "2025-02-28" [ref=e375]:
+                - time [ref=e376]: 2025-02-28
+              - cell [ref=e377]
+            - row "1.28 1.28.15 2024-10-22" [ref=e378]:
+              - cell "1.28" [ref=e379]:
+                - link "1.28" [ref=e380] [cursor=pointer]:
+                  - /url: /releases/1.28/
+              - cell "1.28.15" [ref=e381]
+              - cell "2024-10-22" [ref=e382]:
+                - time [ref=e383]: 2024-10-22
+              - cell [ref=e384]
+            - row "1.27 1.27.16 2024-07-16" [ref=e385]:
+              - cell "1.27" [ref=e386]:
+                - link "1.27" [ref=e387] [cursor=pointer]:
+                  - /url: /releases/1.27/
+              - cell "1.27.16" [ref=e388]
+              - cell "2024-07-16" [ref=e389]:
+                - time [ref=e390]: 2024-07-16
+              - cell [ref=e391]
+            - row "1.26 1.26.15 2024-02-28 1.26.15 was released in March 2024 (after the EOL date) to pick up a new version of Go to address several Go CVEs" [ref=e392]:
+              - cell "1.26" [ref=e393]:
+                - link "1.26" [ref=e394] [cursor=pointer]:
+                  - /url: /releases/1.26/
+              - cell "1.26.15" [ref=e395]
+              - cell "2024-02-28" [ref=e396]:
+                - time [ref=e397]: 2024-02-28
+              - cell "1.26.15 was released in March 2024 (after the EOL date) to pick up a new version of Go to address several Go CVEs" [ref=e398]:
+                - text: 1.26.15 was released in March 2024 (after the EOL date) to pick up a new version of Go to
+                - link "address several Go CVEs" [ref=e399] [cursor=pointer]:
+                  - /url: https://groups.google.com/g/golang-dev/c/o1I1Vv8Rfgs/m/Wr8tD1RlAgAJ
+            - row "1.25 1.25.16 2023-10-28 1.25.16 was released in November 2023 (after the EOL date) to fix CVE-2023-5528" [ref=e400]:
+              - cell "1.25" [ref=e401]:
+                - link "1.25" [ref=e402] [cursor=pointer]:
+                  - /url: /releases/1.25/
+              - cell "1.25.16" [ref=e403]
+              - cell "2023-10-28" [ref=e404]:
+                - time [ref=e405]: 2023-10-28
+              - cell "1.25.16 was released in November 2023 (after the EOL date) to fix CVE-2023-5528" [ref=e406]:
+                - text: 1.25.16 was released in November 2023 (after the EOL date) to fix
+                - link "CVE-2023-5528" [ref=e407] [cursor=pointer]:
+                  - /url: https://groups.google.com/g/kubernetes-announce/c/c3py6Fw0DTI/m/cScFSdk1BwAJ
+            - row "1.24 1.24.17 2023-07-28 1.24.17 was released in August 2023 (after the EOL date) to fix CVE-2023-3676 and CVE-2023-3955" [ref=e408]:
+              - cell "1.24" [ref=e409]:
+                - link "1.24" [ref=e410] [cursor=pointer]:
+                  - /url: /releases/1.24/
+              - cell "1.24.17" [ref=e411]
+              - cell "2023-07-28" [ref=e412]:
+                - time [ref=e413]: 2023-07-28
+              - cell "1.24.17 was released in August 2023 (after the EOL date) to fix CVE-2023-3676 and CVE-2023-3955" [ref=e414]
+            - row "1.23 1.23.17 2023-02-28" [ref=e415]:
+              - cell "1.23" [ref=e416]:
+                - link "1.23" [ref=e417] [cursor=pointer]:
+                  - /url: /releases/1.23/
+              - cell "1.23.17" [ref=e418]
+              - cell "2023-02-28" [ref=e419]:
+                - time [ref=e420]: 2023-02-28
+              - cell [ref=e421]
+            - row "1.22 1.22.17 2022-12-08 1.22.17 was released in December 2022 (after the EOL date) to backport registry changes and fix two critical issues." [ref=e422]:
+              - cell "1.22" [ref=e423]:
+                - link "1.22" [ref=e424] [cursor=pointer]:
+                  - /url: /releases/1.22/
+              - cell "1.22.17" [ref=e425]
+              - cell "2022-12-08" [ref=e426]:
+                - time [ref=e427]: 2022-12-08
+              - cell "1.22.17 was released in December 2022 (after the EOL date) to backport registry changes and fix two critical issues." [ref=e428]
+            - row "1.21 1.21.14 2022-06-28" [ref=e429]:
+              - cell "1.21" [ref=e430]:
+                - link "1.21" [ref=e431] [cursor=pointer]:
+                  - /url: /releases/1.21/
+              - cell "1.21.14" [ref=e432]
+              - cell "2022-06-28" [ref=e433]:
+                - time [ref=e434]: 2022-06-28
+              - cell [ref=e435]
+            - row "1.20 1.20.15 2022-02-28" [ref=e436]:
+              - cell "1.20" [ref=e437]:
+                - link "1.20" [ref=e438] [cursor=pointer]:
+                  - /url: /releases/1.20/
+              - cell "1.20.15" [ref=e439]
+              - cell "2022-02-28" [ref=e440]:
+                - time [ref=e441]: 2022-02-28
+              - cell [ref=e442]
+            - row "1.19 1.19.16 2021-10-28" [ref=e443]:
+              - cell "1.19" [ref=e444]:
+                - link "1.19" [ref=e445] [cursor=pointer]:
+                  - /url: /releases/1.19/
+              - cell "1.19.16" [ref=e446]
+              - cell "2021-10-28" [ref=e447]:
+                - time [ref=e448]: 2021-10-28
+              - cell [ref=e449]
+            - row "1.18 1.18.20 2021-06-18 Created to solve regression introduced in 1.18.19" [ref=e450]:
+              - cell "1.18" [ref=e451]:
+                - link "1.18" [ref=e452] [cursor=pointer]:
+                  - /url: /releases/1.18/
+              - cell "1.18.20" [ref=e453]
+              - cell "2021-06-18" [ref=e454]:
+                - time [ref=e455]: 2021-06-18
+              - cell "Created to solve regression introduced in 1.18.19" [ref=e456]
+            - row "1.17 1.17.17 2021-01-13" [ref=e457]:
+              - cell "1.17" [ref=e458]:
+                - link "1.17" [ref=e459] [cursor=pointer]:
+                  - /url: /releases/1.17/
+              - cell "1.17.17" [ref=e460]
+              - cell "2021-01-13" [ref=e461]:
+                - time [ref=e462]: 2021-01-13
+              - cell [ref=e463]
+            - row "1.16 1.16.15 2020-09-02" [ref=e464]:
+              - cell "1.16" [ref=e465]:
+                - link "1.16" [ref=e466] [cursor=pointer]:
+                  - /url: /releases/1.16/
+              - cell "1.16.15" [ref=e467]
+              - cell "2020-09-02" [ref=e468]:
+                - time [ref=e469]: 2020-09-02
+              - cell [ref=e470]
+            - row "1.15 1.15.12 2020-05-06" [ref=e471]:
+              - cell "1.15" [ref=e472]:
+                - link "1.15" [ref=e473] [cursor=pointer]:
+                  - /url: /releases/1.15/
+              - cell "1.15.12" [ref=e474]
+              - cell "2020-05-06" [ref=e475]:
+                - time [ref=e476]: 2020-05-06
+              - cell [ref=e477]
+            - row "1.14 1.14.10 2019-12-11" [ref=e478]:
+              - cell "1.14" [ref=e479]:
+                - link "1.14" [ref=e480] [cursor=pointer]:
+                  - /url: /releases/1.14/
+              - cell "1.14.10" [ref=e481]
+              - cell "2019-12-11" [ref=e482]:
+                - time [ref=e483]: 2019-12-11
+              - cell [ref=e484]
+            - row "1.13 1.13.12 2019-10-15" [ref=e485]:
+              - cell "1.13" [ref=e486]:
+                - link "1.13" [ref=e487] [cursor=pointer]:
+                  - /url: /releases/1.13/
+              - cell "1.13.12" [ref=e488]
+              - cell "2019-10-15" [ref=e489]:
+                - time [ref=e490]: 2019-10-15
+              - cell [ref=e491]
+            - row "1.12 1.12.10 2019-07-08" [ref=e492]:
+              - cell "1.12" [ref=e493]:
+                - link "1.12" [ref=e494] [cursor=pointer]:
+                  - /url: /releases/1.12/
+              - cell "1.12.10" [ref=e495]
+              - cell "2019-07-08" [ref=e496]:
+                - time [ref=e497]: 2019-07-08
+              - cell [ref=e498]
+            - row "1.11 1.11.10 2019-05-01" [ref=e499]:
+              - cell "1.11" [ref=e500]:
+                - link "1.11" [ref=e501] [cursor=pointer]:
+                  - /url: /releases/1.11/
+              - cell "1.11.10" [ref=e502]
+              - cell "2019-05-01" [ref=e503]:
+                - time [ref=e504]: 2019-05-01
+              - cell [ref=e505]
+            - row "1.10 1.10.13 2019-02-13" [ref=e506]:
+              - cell "1.10" [ref=e507]:
+                - link "1.10" [ref=e508] [cursor=pointer]:
+                  - /url: /releases/1.10/
+              - cell "1.10.13" [ref=e509]
+              - cell "2019-02-13" [ref=e510]:
+                - time [ref=e511]: 2019-02-13
+              - cell [ref=e512]
+            - row "1.9 1.9.11 2018-09-29" [ref=e513]:
+              - cell "1.9" [ref=e514]:
+                - link "1.9" [ref=e515] [cursor=pointer]:
+                  - /url: /releases/1.9/
+              - cell "1.9.11" [ref=e516]
+              - cell "2018-09-29" [ref=e517]:
+                - time [ref=e518]: 2018-09-29
+              - cell [ref=e519]
+            - row "1.8 1.8.15 2018-07-12" [ref=e520]:
+              - cell "1.8" [ref=e521]:
+                - link "1.8" [ref=e522] [cursor=pointer]:
+                  - /url: /releases/1.8/
+              - cell "1.8.15" [ref=e523]
+              - cell "2018-07-12" [ref=e524]:
+                - time [ref=e525]: 2018-07-12
+              - cell [ref=e526]
+            - row "1.7 1.7.16 2018-04-04" [ref=e527]:
+              - cell "1.7" [ref=e528]:
+                - link "1.7" [ref=e529] [cursor=pointer]:
+                  - /url: /releases/1.7/
+              - cell "1.7.16" [ref=e530]
+              - cell "2018-04-04" [ref=e531]:
+                - time [ref=e532]: 2018-04-04
+              - cell [ref=e533]
+            - row "1.6 1.6.13 2017-11-23" [ref=e534]:
+              - cell "1.6" [ref=e535]:
+                - link "1.6" [ref=e536] [cursor=pointer]:
+                  - /url: /releases/1.6/
+              - cell "1.6.13" [ref=e537]
+              - cell "2017-11-23" [ref=e538]:
+                - time [ref=e539]: 2017-11-23
+              - cell [ref=e540]
+            - row "1.5 1.5.8 2017-10-01" [ref=e541]:
+              - cell "1.5" [ref=e542]:
+                - link "1.5" [ref=e543] [cursor=pointer]:
+                  - /url: /releases/1.5/
+              - cell "1.5.8" [ref=e544]
+              - cell "2017-10-01" [ref=e545]:
+                - time [ref=e546]: 2017-10-01
+              - cell [ref=e547]
+            - row "1.4 1.4.12 2017-04-21" [ref=e548]:
+              - cell "1.4" [ref=e549]:
+                - link "1.4" [ref=e550] [cursor=pointer]:
+                  - /url: /releases/1.4/
+              - cell "1.4.12" [ref=e551]
+              - cell "2017-04-21" [ref=e552]:
+                - time [ref=e553]: 2017-04-21
+              - cell [ref=e554]
+            - row "1.3 1.3.10 2016-11-01" [ref=e555]:
+              - cell "1.3" [ref=e556]:
+                - link "1.3" [ref=e557] [cursor=pointer]:
+                  - /url: /releases/1.3/
+              - cell "1.3.10" [ref=e558]
+              - cell "2016-11-01" [ref=e559]:
+                - time [ref=e560]: 2016-11-01
+              - cell [ref=e561]
+            - row "1.2 1.2.7 2016-10-23" [ref=e562]:
+              - cell "1.2" [ref=e563]:
+                - link "1.2" [ref=e564] [cursor=pointer]:
+                  - /url: /releases/1.2/
+              - cell "1.2.7" [ref=e565]
+              - cell "2016-10-23" [ref=e566]:
+                - time [ref=e567]: 2016-10-23
+              - cell [ref=e568]
+        - generic [ref=e569]:
+          - heading "Feedback" [level=2] [ref=e570]
+          - paragraph [ref=e571]: Was this page helpful?
+          - button "Yes" [ref=e572] [cursor=pointer]
+          - button "No" [ref=e573] [cursor=pointer]
+        - generic [ref=e574]:
+          - text: "Last modified April 14, 2026 at 1:15 AM PST:"
+          - 'link "fix(links): update kubernetes/community links from master to main (03c191bcc4)" [ref=e575] [cursor=pointer]':
+            - /url: https://github.com/kubernetes/website/commit/03c191bcc446f9c15a9e68d6cd1154b53bde4291
+  - contentinfo [ref=e576]:
+    - generic [ref=e578]:
+      - generic [ref=e579]:
+        - paragraph [ref=e580]:
+          - generic [ref=e581]:
+            - text: © 2026 The Kubernetes Authors | Documentation Distributed under
+            - link "CC BY 4.0" [ref=e582] [cursor=pointer]:
+              - /url: https://git.k8s.io/website/LICENSE
+        - paragraph [ref=e583]:
+          - generic [ref=e584]:
+            - text: © 2026 The Linux Foundation ®. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our
+            - link "Trademark Usage page" [ref=e585] [cursor=pointer]:
+              - /url: https://www.linuxfoundation.org/trademark-usage
+        - paragraph [ref=e586]: "ICP license: 京ICP备17074266号-3"
+      - list [ref=e588]:
+        - listitem [ref=e589]:
+          - link "YouTube" [ref=e590] [cursor=pointer]:
+            - /url: https://youtube.com/kubernetescommunity
+            - generic [ref=e591]: 
+        - listitem [ref=e592]:
+          - link "Forum" [ref=e593] [cursor=pointer]:
+            - /url: https://discuss.kubernetes.io
+            - generic [ref=e594]: 
+        - listitem [ref=e595]:
+          - link "Server Fault" [ref=e596] [cursor=pointer]:
+            - /url: https://serverfault.com/questions/tagged/kubernetes
+            - generic [ref=e597]: 
+        - listitem [ref=e598]:
+          - link "LinkedIn" [ref=e599] [cursor=pointer]:
+            - /url: https://www.linkedin.com/company/kubernetes/
+            - generic [ref=e600]: 
+        - listitem [ref=e601]:
+          - link "Bluesky" [ref=e602] [cursor=pointer]:
+            - /url: https://bsky.app/profile/kubernetes.io
+            - generic [ref=e603]: 
+        - listitem [ref=e604]:
+          - link "X (formerly Twitter)" [ref=e605] [cursor=pointer]:
+            - /url: https://x.com/kubernetesio
+            - generic [ref=e606]: 
+      - list [ref=e608]:
+        - listitem [ref=e609]:
+          - link "Contributor website" [ref=e610] [cursor=pointer]:
+            - /url: https://k8s.dev/
+            - generic [ref=e611]: 
+        - listitem [ref=e612]:
+          - link "GitHub" [ref=e613] [cursor=pointer]:
+            - /url: https://github.com/kubernetes/kubernetes
+            - generic [ref=e614]: 
+        - listitem [ref=e615]:
+          - link "Slack" [ref=e616] [cursor=pointer]:
+            - /url: https://slack.k8s.io
+            - generic [ref=e617]: 
+        - listitem [ref=e618]:
+          - link "Events Calendar" [ref=e619] [cursor=pointer]:
+            - /url: https://calendar.google.com/calendar/embed?src=calendar%40kubernetes.io
+            - generic [ref=e620]: 
+  - text:             

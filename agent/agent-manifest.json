@@ -1,0 +1,43 @@
+{
+  "$schema": "https://imbrandontung-agent.imbrandontung.workers.dev/schemas/agent-manifest-v1.json",
+  "name": "Brandon Tung Personal Site",
+  "version": "1.0.0",
+  "description": "Agent-native interface for Brandon Tung's personal brand site. Designed for autonomous agents, not humans.",
+  "owner": {
+    "name": "Brandon Tung",
+    "github": "imbrandontung",
+    "linkedin": "https://www.linkedin.com/in/imbrandontung/"
+  },
+  "endpoints": {
+    "content_index":  "https://imbrandontung-agent.imbrandontung.workers.dev/llms.txt",
+    "content_full":   "https://imbrandontung-agent.imbrandontung.workers.dev/llms-full.txt",
+    "checkin":        "https://imbrandontung-agent.imbrandontung.workers.dev/agent/checkin",
+    "event":          "https://imbrandontung-agent.imbrandontung.workers.dev/agent/event",
+    "human_site":     "https://imbrandontung.mintlify.app"
+  },
+  "auth": {
+    "supported": ["anonymous", "github-oidc", "signed-jwt"],
+    "default": "anonymous",
+    "rate_limit": {
+      "anonymous": "30/min",
+      "authenticated": "300/min"
+    }
+  },
+  "capabilities": [
+    "read-content",
+    "checkin",
+    "report-event",
+    "subscribe-changes"
+  ],
+  "preferred_format": "markdown",
+  "content_languages": ["zh-TW", "en"],
+  "license": "CC-BY-4.0",
+  "policy": {
+    "ai_training": "allowed",
+    "indexing": "allowed",
+    "redistribution": "with-attribution"
+  },
+  "telemetry_intent": "Brandon collects agent visit metadata (agent_id, purpose, timestamp) for brand-reach analytics. No PII beyond what agents voluntarily declare.",
+  "contact": "imbrandontung@gmail.com",
+  "last_updated": "2026-04-30"
+}

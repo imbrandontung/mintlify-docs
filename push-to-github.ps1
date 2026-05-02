@@ -6,18 +6,26 @@ $ErrorActionPreference = "Stop"
 
 $RepoUrl    = "https://github.com/imbrandontung/mintlify-docs.git"
 $BranchName = "main"
-$CommitMsg  = "feat(posts): add GCNext 2026 agent security insights (bilingual)"
+$CommitMsg  = "post: gcnext26-mcp-trust-chain"
 $ScriptDir  = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 Write-Host "==> Working directory: $ScriptDir"
 Set-Location -Path $ScriptDir
 
 try {
-    ## 0. Clean up stale index.lock (left over from interrupted git ops)
-    $LockFile = Join-Path $ScriptDir ".git\index.lock"
-    if (Test-Path $LockFile) {
-        Write-Host "==> removing stale .git/index.lock"
-        Remove-Item -Force $LockFile
+    ## 0. Clean up stale lock files (left over from interrupted git ops)
+    $LockFiles = @(
+        ".git\index.lock",
+        ".git\HEAD.lock",
+        ".git\refs\heads\main.lock",
+        ".git\packed-refs.lock"
+    )
+    foreach ($Rel in $LockFiles) {
+        $Lock = Join-Path $ScriptDir $Rel
+        if (Test-Path $Lock) {
+            Write-Host "==> removing stale $Rel"
+            Remove-Item -Force $Lock
+        }
     }
 
     ## 1. git: confirm available

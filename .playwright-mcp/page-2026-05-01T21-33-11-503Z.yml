@@ -1,0 +1,25 @@
+- generic [ref=e3]:
+  - generic [ref=e7]:
+    - generic [ref=e8]: F5 Sites
+    - img [ref=e10]
+  - paragraph [ref=e21]:
+    - text: Find sign in and sign up help in the
+    - link "FAQ" [ref=e22] [cursor=pointer]:
+      - /url: https://my.f5.com/manage/s/article/K000089224
+      - text: FAQ
+      - img [ref=e23]
+  - contentinfo [ref=e27]:
+    - generic [ref=e29]:
+      - generic [ref=e30]: © 2026 F5, Inc. All Rights Reserved
+      - link "Trademarks" [ref=e32] [cursor=pointer]:
+        - /url: https://www.f5.com/company/policies/trademarks
+      - link "Policies" [ref=e34] [cursor=pointer]:
+        - /url: https://www.f5.com/company/policies
+      - link "Privacy" [ref=e36] [cursor=pointer]:
+        - /url: https://www.f5.com/company/policies/privacy-policy
+      - link "California Privacy" [ref=e38] [cursor=pointer]:
+        - /url: https://www.f5.com/company/policies/F5-California-privacy-summary
+      - link "Do Not Sell My Personal Information" [ref=e40] [cursor=pointer]:
+        - /url: https://www.f5.com/company/policies/privacy-notice#no-sell
+      - complementary "Open Cookie Preferences Modal" [ref=e41]:
+        - link "Cookie Preferences, opens a dedicated popup modal window" [ref=e42] [cursor=pointer]: Cookie 喜好设置
