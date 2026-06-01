@@ -195,7 +195,7 @@ After ANY change, verify in Playwright (`browser_navigate` to `about:blank`, the
 
 ## 11. Reply format (Brandon's preferences)
 
-- 中文 first, English second when content is "published" (artifacts, dashboard text).
+- **English-first** when content is "published" (LinkedIn / Mintlify / GitHub posts) — full EN block before full ZH block, with dual-line `【中文標題】` / `【English Title】` opener. See § 13.
 - Chat replies stay 中文 only.
 - End every brand-run reply with `[開啟 Dashboard](computer://...NDA_PrePublish_Scorecard.html)`.
 - Format when reporting status: Answer → Evidence → Confidence% → Verify Steps.
@@ -210,6 +210,109 @@ After ANY change, verify in Playwright (`browser_navigate` to `about:blank`, the
 - Don't move `const NDA_PATTERN_DEFS` below the orchestration block (TDZ).
 - Don't leave duplicated/dead Python at the end of `daily_collector.py`.
 - Don't claim closed-loop verification when only row count was checked but DOM position wasn't.
+
+## 13. 跨平台發文 SOP（LinkedIn + Mintlify + GitHub）
+
+**Updated 2026-06-02：** 新增 **§ 13.0 平台分層與受眾鎖定**（受眾 = enterprise architects / CTO / AI infrastructure leaders；禁止 SMB / 中小企業 / 商業導流字眼；違者禁止發布）。完整規則：見 KB-O07。
+
+**Updated 2026-06-01：** 改為 **英文內文在前**，擴大英文讀者觸及；標題只用英文；正文前先以兩行同時呈現中英文標題。適用平台：LinkedIn 貼文、Mintlify 文章、GitHub README / Release Notes / 公開 commit message。
+
+### 13.0 平台分層與受眾鎖定（Platform Tiering — 最高優先）
+
+| 平台 | 定位（離職前）| 受眾 | SMB 字眼 |
+|------|--------------|------|----------|
+| LinkedIn | 最技術前沿的企業級 AI 架構經驗 | 企業架構師 / CTO / CIO / AI 基礎設施主管 | ❌ 禁 |
+| Mintlify (`imbrandontung.mintlify.app`) | 同 LinkedIn（canonical 來源）| 同上 | ❌ 禁 |
+| GitHub | 開源樣板、agent skill / SOP / 程式碼 | 開發者、架構師 | ❌ 禁 |
+| 未來個人品牌網站（離職後另闢）| SMB 包班 / 顧問 / 客製課程成功案例 | SMB 老闆、決策者 | ✅ 主受眾 |
+
+**強制檢查（每篇 LinkedIn / Mintlify / GitHub 公開文章必過）**
+
+```
+□ 全文無 SMB / Small and Medium Business / 中小企業 / 中小型組織 字眼？
+□ 主訴對象是企業架構師 / CTO / AI 基礎設施主管，不是「中小企業老闆」？
+□ 無商業導流字眼（企業包班、1v1 顧問、客製課程）？
+□ Tone 是「最技術前沿」，不是「給中小企業看的入門解說」？
+```
+
+任一項為「否」，禁止發布，必須改寫。
+
+商業導流（imBrandon 個人公司目前 TA 是 SMB）走**私域管道**：Email、私訊、客戶介紹。離職後才另闢品牌網站放 SMB 案例。
+
+
+### 格式（固定順序，不可更動）
+
+```
+[Post / Page Title — English only]
+
+【中文標題】
+【English Title】
+
+---
+
+[Full English content block]
+
+---
+
+[完整中文版內文]
+
+---
+
+延伸閱讀 / Read more:
+https://imbrandontung.mintlify.app/posts/<slug>
+
+#hashtags (EN + ZH merged, no dup)
+```
+
+規則：
+- **標題（Title field）只用英文**。LinkedIn post title / Mintlify frontmatter `title:` / GitHub release title 皆同。
+- 正文開頭兩行：第一行 `【中文標題】`、第二行 `【English Title】`，讓中英讀者都能秒抓主題。
+- **英文整段先寫完，才接 `---`，再接中文整段**。不逐段交替。
+- Mintlify 連結放最末（LinkedIn / GitHub 才需要；Mintlify 自己是 canonical 就不必）。
+- Hashtag 跟在連結之後，中英合併、不重複。
+
+### Mintlify 對應
+
+- Frontmatter `title:` 英文單行。
+- 第一段 `【中文標題】` / `【English Title】` 兩行，作為視覺 hook。
+- 後續結構同上：English block → `---` → Chinese block → References。
+- Heading anchors：英文 heading 用英文 ID，中文 heading 用中文 ID，不共用。
+
+### GitHub 對應
+
+- README、Release Notes、公開 commit message 套用同格式。
+- 內部腳本註解、私有 commit 不必雙語。
+
+### Chrome MCP 流程（LinkedIn）
+
+```
+1. tabs_context_mcp(createIfEmpty=true)          # 取得 tabId
+2. navigate("https://www.linkedin.com/feed/")    # 開 LinkedIn feed
+3. find("Start a post / 開始發文")               # 找到貼文框
+4. left_click(element)                           # 點擊打開
+5. form_input / type — 貼入全文（EN → ZH → 連結）
+6. screenshot — 截圖給用戶確認
+7. 等待用戶明確授權（"確認發布" / "go"）
+8. find("Post / 發布 button") → left_click      # 發布
+9. screenshot — 確認貼文已出現在 feed
+```
+
+### 安全規則
+
+- 步驟 8 點「Post」前 **必須** 截圖 + 等用戶授權，不可自動送出。
+- 不貼公司名稱、客戶名稱、內部專案代碼。
+- 若 LinkedIn 要求登入，停下並通知用戶自行登入，不代入密碼。
+- GitHub push 同樣須先 `git diff` 截圖等授權；公開 commit message 也走雙語格式。
+
+### Don't-do
+
+- 不貼兩篇（一中一英分開）：一律合併為一篇雙語貼文。
+- 不把中文放在英文前面（2026-06-01 之後是 EN first）。
+- 不省略 Mintlify 連結（LinkedIn / GitHub 場景）。
+- 不在用戶確認前點 Post / Push。
+- 標題不要中英並列；標題只用英文。中英標題只放在正文前兩行。
+
+---
 
 ## Bundled assets (in this folder)
 

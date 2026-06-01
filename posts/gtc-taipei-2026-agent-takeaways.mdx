@@ -1,0 +1,154 @@
+---
+title: "GTC Taipei 2026: The Agent Stack Just Became the New Application"
+description: "Jensen Huang's GTC Taipei 2026 keynote was a 7-act show. Strip away the racks, the CPUs, the PC reboot, the physical robots — what remains is one quietly radical claim: the agent is the new application, and the harness is the new operating system. For enterprise architects and AI infrastructure leaders making 2026–2030 stack bets, here are the 11 Agent-only signals worth keeping."
+---
+
+> 2026-06-02 · Personal reading of Jensen Huang's GTC Taipei 2026 keynote (Taipei Music Center, 2026-06-01). Agent-only extract, written for enterprise architects and AI infrastructure leaders. Source: NVIDIA on-stage transcript, cross-checked with same-day press coverage.
+
+---
+
+【從 App 到 Agent：GTC Taipei 2026 的 11 個訊號】
+【From Apps to Agents: 11 Signals From GTC Taipei 2026】
+
+---
+
+# English version
+
+I watched the GTC Taipei 2026 keynote with one filter on: **strip everything that isn't about agents**. No racks, no CPUs, no PC reboot, no physical robots. Just the question — *what is Jensen actually saying about the new application primitive, and what should an enterprise architect do about it in the next 18 months?*
+
+Here are the 11 signals worth keeping.
+
+---
+
+### 1. "Useful AI has arrived" is a billing statement, not a vibe
+
+Two years of agentic AI talk just collapsed into one line: **tokens are now profitable units of revenue**. The implication isn't that AI got smarter. It's that AI finally crossed the threshold where producing a token costs less than what the market will pay for it. Every downstream claim in the keynote — Vera Rubin, Vera CPU, DSX, Spark — follows from that one economic phase change. For an enterprise architect, this is the moment your "AI cost line" starts being modelled as a revenue line.
+
+### 2. The agent is the new application; the harness is the new OS
+
+For thirty years the unit shipped was *application + operating system*. Going forward, the unit shipped is **LLM (Large Language Model) + harness + tools + runtime**. The harness orchestrates context, memory, reasoning, tool calls. If your architecture review board is still treating "agent" as a marketing wrapper around a chatbot, you're already a layer behind. The mental model to internalise — and to redraw your reference architecture against: **brain (model), body (harness), workshop (tools in a runtime).**
+
+### 3. Software dev counts went *up*, not down
+
+GitHub commits in early 2026 nearly tripled vs 2025. The "AI will kill engineering jobs" narrative got publicly contradicted on stage: when one engineer's output goes from 3 to ~9 trillion dollars of productivity, *the rational enterprise hires more, not fewer*. The asymmetry is unambiguous. For enterprise hiring committees this matters more than for hyperscalers — your existing platform-engineering headcount plan just became the conservative case, not the aggressive one.
+
+### 4. CUDA-X libraries are now agent tools — with bundled skills
+
+NVIDIA's 20-year moat (cuOpt, cuDSS, Warp, Parabricks, etc.) is being repackaged as **tools an agent can read manuals for and use**. The manual format has a name: **skills**. The thing internal platform teams have been writing as Markdown SOPs (Standard Operating Procedures) for their own agents is the same primitive Jensen is shipping at silicon-vendor scale. That's strong validation for any enterprise that has already standardised its internal tooling under a "skill manifest" pattern.
+
+### 5. Compute is now disaggregated by agent verb
+
+Agents observe → reason → plan → act → recall. Each verb runs on a different part of the machine: LLM thinks on GPU, harness orchestrates on CPU, security harness runs on DPU (Data Processing Unit, NVIDIA calls it BlueField), memory lives in a storage processor, KV (Key-Value) cache compaction is a first-class concern. The architecture diagram of a single agent is now bigger than a 2020 production app. **Capacity plans must be re-done by verb, not by user count.** That alone is a reference-architecture rewrite for most enterprise AI platform teams.
+
+### 6. Inference ≠ agentic inference
+
+Jensen drew a line: Hopper was for pre-training, Grace Blackwell was for inference, **Vera Rubin is for *agentic* inference**. The distinction matters because agentic workloads juggle long context, working + long-term memory, sub-agent fan-out, and tool-call latency in ways a single-shot LLM call doesn't. If your hyperscaler account team or hardware vendor still says "inference is solved, anyone can do it," they're describing 2024. Push them on agentic inference benchmarks — failure mode, mean time between interrupts, KV cache strategy — and you'll quickly find out who's caught up.
+
+### 7. CPUs for humans vs. CPUs for agents
+
+The most under-reported reframing in the keynote. **Humans live in seconds. Agents live in nanoseconds.** Renting cores by the hour optimises for a workload that no longer dominates. Vera CPU's pitch — IPC (Instructions Per Clock) + bandwidth per core + total bandwidth + energy efficiency, with 1.8× agentic sandbox performance vs x86 — is what "CPU for the age of agents" actually means. Enterprise architects evaluating data-centre refresh cycles should treat the old benchmarks as deliberately misleading for this workload class.
+
+### 8. OpenShell: the agent runtime gets an open-source standard
+
+NVIDIA's **OpenShell** is positioned as the secure harness any agent (Claude Code, Codex, your own) plugs into. Red Hat, Canonical, Microsoft already on board. Translation: *the agent runtime layer is about to standardise the same way the Linux container runtime did in 2014–2016*. If your platform team is building internal agents on a one-off harness today, you're accumulating runtime-layer debt — start treating OpenShell-class runtimes as your "Kubernetes moment for agents" and plan the migration window.
+
+### 9. Nemotron 3 Ultra: open model with open *data* and open training
+
+A frontier-smart open model 5× faster, 30% cheaper, hybrid SSM (State-Space Model) + MoE (Mixture of Experts) architecture. The non-obvious thing: NVIDIA is also releasing the **training data and training scripts**. That converts a model release into a *recipe* release, which is what enterprises actually need to build domain-specific agents — sovereign deployments, regulated industries, on-premise inference — without becoming dependent on a single closed-model vendor.
+
+### 10. Cadence Super Agent: chip-verification cycles from weeks to hours, 40×
+
+Specific, not vibes. The case-study format matters: a hard, high-stakes, regulated engineering domain (chip verification) gets compressed 40× by orchestrating expert sub-agents under one harness, on a proprietary model fine-tuned by the domain owner. **This is the template for industrial agents in 2026.** Replace "RTL (Register-Transfer Level) verification" with whichever cross-functional workflow inside your enterprise is currently bottlenecked on senior-engineer cycles — that's where the next industrial agent should be aimed.
+
+### 11. The personal AI computer is real, and it lives at the edge of the enterprise
+
+The most interesting line in the whole keynote was buried in a metaphor: ten years from now, *you'll have an AI supercomputer at home the way you have a home theatre today*. Always on. Connected to everything. Running your local agents. RTX Spark and the Windows DGX Station (768 GB unified memory, 20 PFLOPS) are the first physical artefacts of that future. For enterprise architects, the strategic question isn't whether end-users will have local agents — it's *which workloads will move from the data-centre core to enterprise-edge personal computers* for latency, privacy, and sovereignty reasons. Plan the hybrid topology now.
+
+---
+
+### So what — for enterprise architects and AI infrastructure leaders?
+
+Three takeaways are operational, not aspirational:
+
+1. **Treat "agent" as a top-level application class in your reference architecture.** Budget for it, security-review it, version it. It deserves the same architectural rigour you give to your service-mesh layer or your data-lakehouse.
+2. **Pick a harness deliberately.** OpenShell-class runtimes will eat ad-hoc Python orchestration in 12–18 months. Don't accumulate debt on a wrapper your platform team will have to throw away.
+3. **Audit which of your CUDA-X-equivalent internal tools have "skills" yet.** If your enterprise's domain knowledge isn't documented as something an agent can read and call, it doesn't exist for the next stack. This is the single highest-leverage move you can authorise in the next quarter.
+
+The keynote was full of hardware. The headline was about software. The actual story is about *who owns the agent stack of 2030*.
+
+I'm betting it isn't whoever owns the biggest GPU.
+
+---
+
+# 中文版
+
+我看 GTC Taipei 2026 主題演講時掛了一個濾鏡：**只看 Agent，其他都跳過**。不看機架、不看 CPU、不看 PC 重新發明、不看實體機器人。只問一個問題——**老黃到底在說什麼樣的新「應用程式」基本單位？對企業 AI 架構決策者來說，未來 18 個月該怎麼接招？**
+
+以下是我覺得值得留下來的 11 個訊號。
+
+---
+
+### 1.「實用 AI 已經到來」是帳單，不是氣氛
+
+兩年的 agentic AI 鋪陳，這次濃縮成一句話：**Token 現在是有利可圖的收入單位**。重點不是 AI 變聰明了，而是 AI 終於跨過了「產一顆 Token 的成本，低於市場願意付的價格」這條線。後面所有重磅發布（Vera Rubin、Vera CPU、DSX、Spark）都建立在這個經濟相變上。對企業架構師而言，這是「AI 成本科目」開始以「收入科目」邏輯被建模的瞬間。
+
+### 2. Agent 是新應用，Harness 是新 OS（作業系統）
+
+過去 30 年出貨的單位是「應用程式 + 作業系統」。往後出貨的單位是 **LLM (Large Language Model) + Harness + 工具 + 運行時**。Harness 負責編排上下文、記憶、推理、工具呼叫。如果你的架構審查會還把 agent 當成「聊天機器人加個 UI」，那已經落後一個抽象層。心智模型請更新成、並用它重畫參考架構：**模型是大腦、Harness 是身體、工具+運行時是工作坊**。
+
+### 3. 工程師人頭數是上升的，不是下降
+
+2026 上半 GitHub commit 數是 2025 同期的近三倍。「AI 砍工程師」的敘事在台上被公開反駁：當一個工程師的產出從 3 兆放大到 9 兆美元等級的生產力，**理性的企業會請更多人，不會請更少**。對企業招募委員會而言尤其關鍵——你目前的平台工程人力編列已經是「保守案」，不是「積極案」。
+
+### 4. CUDA-X 函式庫變成 Agent 工具，附「Skill 說明書」
+
+NVIDIA 20 年護城河（cuOpt、cuDSS、Warp、Parabricks 等）被重新包裝成**「Agent 能讀說明書、然後使用」的工具**。那份說明書有個名字：**Skill**。企業內部平台團隊為自家 agent 寫的 SOP (Standard Operating Procedure)，跟老黃要用晶片廠規模出貨的，是同一個原語。對任何已經在用「skill manifest」模式統一內部工具的企業而言，這是強力背書。
+
+### 5. 算力按 Agent 的「動詞」拆解
+
+Agent 觀察 → 推理 → 規劃 → 行動 → 回憶。每個動詞跑在機器不同部位：LLM 思考用 GPU、Harness 編排用 CPU、安全 Harness 跑 DPU (Data Processing Unit，NVIDIA 稱為 BlueField)、記憶體掛在儲存處理器、KV (Key-Value) 快取的「壓實」是頭等公民。一個 agent 的架構圖，現在比 2020 年一個生產級 app 還大。**容量規劃要按動詞重做，不要按使用者數做。** 光這一件事，對多數企業 AI 平台團隊而言，就是一份參考架構的重寫工作。
+
+### 6. 推論 ≠ Agentic 推論
+
+老黃在台上劃了一條線：Hopper 是為預訓練，Grace Blackwell 是為推論，**Vera Rubin 是為 *Agentic* 推論**。差別在於：agentic 工作負載要同時處理長上下文、工作+長期記憶、子 agent 扇出、工具呼叫延遲——這些不是單次 LLM 呼叫的世界觀。如果你的雲端帳號管理 / 硬體 vendor 還在說「推論很簡單、誰都能做」，那是 2024 年的台詞。要他們攤開 agentic 推論的具體指標（failure mode、平均中斷間隔、KV 快取策略），很快就會知道誰跟上了。
+
+### 7. 給「人」用的 CPU vs. 給「Agent」用的 CPU
+
+整場演講最被低估的重新框架。**人活在秒的世界，Agent 活在奈秒的世界。** 按小時、按核心租 CPU，是為一個正在退場的工作負載最佳化。Vera CPU 的賣點——IPC (Instructions Per Clock)、每核心頻寬、總頻寬、能效，加上比 x86 高 1.8 倍的 agentic 沙盒效能——這才是「為 Agent 時代打造的 CPU」實際的意思。正在評估資料中心硬體更新週期的企業架構師，請把舊指標當成「對此工作負載類別刻意誤導」處理。
+
+### 8. OpenShell：Agent 運行時要開源標準化了
+
+NVIDIA 的 **OpenShell** 定位為任何 agent（Claude Code、Codex、你自己的）都能插上去的安全 Harness。Red Hat、Canonical、Microsoft 已表態。翻譯：**agent 運行時這一層，要走 2014–2016 年容器運行時標準化的同一條路**。如果你的平台團隊現在還在用一次性的 Harness 包裝 agent，正在累積運行時層的技術債——請把 OpenShell 等級的運行時當成「Agent 的 Kubernetes 時刻」處理，並規劃遷移視窗。
+
+### 9. Nemotron 3 Ultra：開放模型 + 開放*資料* + 開放訓練腳本
+
+前沿級智慧，快 5 倍、便宜 30%，SSM (State-Space Model) + MoE (Mixture of Experts) 混合架構。不顯眼但關鍵的一點：NVIDIA 同時公開**訓練資料與訓練腳本**。這把「模型釋出」升級為「配方釋出」——而這正是企業要打造「主權部署、強監管產業、地端推論」的領域專屬 agent 時，真正需要的東西，不必綁死在單一封閉模型廠商。
+
+### 10. Cadence 超級 Agent：晶片驗證從週縮短到小時，40×
+
+具體案例，不是氣氛行銷。值得留意的是這個案例的格式：一個困難、高風險、強監管的工程領域（晶片驗證），透過在單一 Harness 下編排專家子 agent，搭配領域擁有者微調的專屬模型，被壓縮 40 倍。**這就是 2026 年產業 Agent 的範本。** 把「RTL (Register-Transfer Level) 驗證」換成你企業內部目前卡在資深工程師工時上的跨部門工作流程——下一個產業 agent 就該瞄準那裡。
+
+### 11. 個人 AI 電腦是真的，而且它住在「企業邊緣」
+
+整場最有意思的一句話藏在一個比喻裡：10 年後，**你家裡會有一台 AI 超級電腦，就像今天每家都有家庭劇院**。一直開機、連著一切、跑你所有的本地 agent。RTX Spark 跟 Windows 版 DGX Station（768 GB 統一記憶體、20 PFLOPS）是這個未來的第一批實體。對企業架構師，戰略問題不是「終端使用者會不會有本地 agent」——而是**「哪些工作負載會從資料中心核心，因延遲 / 隱私 / 主權因素，遷移到企業邊緣的個人 AI 電腦」**。現在就要開始規劃混合拓撲。
+
+---
+
+### 那又如何 — 給企業架構師與 AI 基礎設施主管
+
+三件事是可執行的、不是空話：
+
+1. **把「Agent」當成參考架構中的頂層應用類別**。要編列預算、要做資安審查、要做版本管理。給它的架構嚴謹度，應該跟你給 service mesh 或 data lakehouse 一樣。
+2. **挑選 Harness 要刻意**。OpenShell 等級的運行時，會在 12–18 個月內吃掉臨時拼湊的 Python 編排。不要讓你的平台團隊在一個終究要丟掉的包裝上累積技術債。
+3. **盤點你的「CUDA-X 等價內部工具」有沒有 Skill**。如果企業的領域知識沒有以 agent 能讀、能呼叫的形式存在，對下一個技術棧而言，它就不存在。這是你下一季能授權的單一最高槓桿動作。
+
+整場演講塞滿硬體，標題是軟體，真正的故事是——**2030 年的 Agent Stack 屬於誰**。
+
+我賭那不會是擁有最大 GPU 的人。
+
+---
+
+延伸閱讀 / Read more:
+- https://imbrandontung.mintlify.app/posts/gtc-taipei-2026-agent-takeaways
+
+#AgenticAI #GTC2026 #AIInfrastructure #EnterpriseArchitecture #imBrandon #AI架構 #企業AI #個人品牌
