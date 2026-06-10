@@ -1,0 +1,108 @@
+---
+title: "Yesterday Anthropic Opened the Door — Now Every Company Has to Think About AI Oversight"
+description: "Claude Fable 5 publicly launched on 2026-06-09. The vulnerability-discovery capability that was behind a 'defense-only' guest list two months ago now sits inside every paid Claude seat. What just changed for enterprise security and integration teams."
+---
+
+> Brandon Tung · imBrandon
+> 2026-06-10 · Part 1 of 4 — Compliance API Series
+
+【AI 找漏洞的能力昨天全面公開——每家公司現在都得想「怎麼管」】
+
+【Yesterday Anthropic Opened the Door — Now Every Company Has to Think About AI Oversight】
+
+---
+
+# English Version
+
+Yesterday (2026-06-09), Anthropic publicly launched **Claude Fable 5** — the first publicly available model with the same vulnerability-discovery capability that, two months ago, was kept behind a tightly controlled "defense-only" guest list.
+
+## What actually changed
+
+- The ability to find software security holes at industrial speed used to be locked up. Now it sits inside every paid Claude account (Pro / Max / Team / Enterprise).
+- Free to use through 2026-06-22, then about half the price of the earlier preview version.
+- If someone asks a clearly high-risk security or biology question, the system quietly routes the conversation to a more cautious model (Opus 4.8). Anthropic says this happens in fewer than 5% of conversations.
+
+For two months, researchers warned that "this capability will eventually leak out." Yesterday Anthropic made the leak official — on purpose.
+
+For most enterprise teams, the question just changed shape:
+
+It used to be "Will our adversaries eventually get this capability?"
+
+Today it is "Our own employees got it on day one. How do we see what they do with it before someone audits us?"
+
+## The one-line takeaway
+
+Anthropic also offers a free **Compliance API** — basically a built-in oversight hook that lets a company's security tools (the systems that track logins, scan messages, and flag policy violations) read what employees do with Claude. It's wired into 28 major security platforms.
+
+It costs nothing. That's the point. It was designed to remove the security team's veto on adopting AI.
+
+With Fable 5 now in every paid seat, that quiet oversight hook just stopped being a "nice to have" and started being the only thing separating "employees use AI in the open" from "employees use AI in the shadows."
+
+## What integration companies should focus on
+
+Three things matter, in this order:
+
+1. **Model usage cost.** It's billed by the word, like a water meter. Help customers model what their bill will look like in July, before it arrives.
+2. **Turning on the oversight properly.** Configure the Compliance API, set red-line policies, route the logs to the right places.
+3. **Plug the logs into the security dashboards customers already have.** SIEM routing, alert correlation, audit trail integrity.
+
+## Coming up in this series
+
+- **Part 2** — How the free oversight tool actually makes money for Anthropic
+- **Part 3** — Why give it away? Three layers of strategy, and the open ecosystem vs walled garden trade-off
+- **Part 4** — The defense playbook after Fable 5 — for integrators, for individuals, for the next decade
+
+---
+
+# 中文版
+
+昨天（2026-06-09），Anthropic 公開上線 **Claude Fable 5**——這是第一款讓一般人也能用、具備同等「工業化找漏洞」能力的模型。兩個月前，同樣的能力還鎖在「防禦專用」的邀請名單後面。
+
+## 實際上發生了什麼
+
+- 過去鎖起來、會自動找出軟體漏洞的能力，現在出現在每一個付費版 Claude 帳號裡（Pro / Max / Team / Enterprise）
+- 6/22 之前免費包含，之後計價約是先前 Preview 版的一半
+- 如果有人問明顯高風險的資安或生物問題，系統會悄悄把對話轉接到比較保守的模型（Opus 4.8）。官方說這個觸發率小於 5%
+
+過去兩個月，學界與研究單位一直警告「這個能力遲早會擴散」。昨天，Anthropic 自己把「擴散」這件事正式做了——而且是刻意的。
+
+對大多數企業團隊，問題的形狀變了：
+
+過去是「對手哪天會拿到這個能力」。
+
+今天變成「我們自己員工第一天就拿到了。在被稽核之前，我們怎麼看見他們拿它做了什麼？」
+
+## 一句話總結
+
+Anthropic 同步提供一個 **免費的 Compliance API**——其實就是「內建的監看鉤子」，讓公司現有的資安工具（那些追蹤登入、掃描訊息、攔截違規的系統）可以讀到員工在 Claude 上的活動。它已經串好 28 家主流資安平台。
+
+它免費，是有目的的。設計初衷是「替 AI 採購清掉資安團隊的否決票」。
+
+Fable 5 鋪到每個付費席次的同一天，這個監看鉤子，正式從「有也不錯」變成「員工正大光明用 AI」與「員工偷偷用 AI」之間唯一的分界。
+
+## 對系統整合公司，三件事最重要
+
+順序也很重要：
+
+1. **模型的用量成本。** 它按字數計費，像水電帳單。幫客戶在 7 月帳單到之前先做成本建模
+2. **把監看打開來用。** 配置 Compliance API、設紅線政策、把紀錄送到對的地方
+3. **把紀錄導進客戶現有的資安儀表板。** SIEM 路由、警報關聯、稽核軌跡完整性
+
+## 連載預告
+
+- **Part 2** — 免費的監看工具到底怎麼讓 Anthropic 賺錢
+- **Part 3** — 為什麼免費送？三層策略邏輯 + 開放生態 vs 封閉花園
+- **Part 4** — Fable 5 之後的防禦劇本——給整合商、給個人、給未來十年
+
+---
+
+## Sources
+
+- [Anthropic releases its first Mythos-class model to the public](https://fortune.com/2026/06/09/anthropic-releases-its-first-mythos-model-to-the-public/) — Fortune, 2026-06-09
+- [Anthropic releases first Mythos-level model for general use](https://www.axios.com/2026/06/09/anthropic-mythos-class-safeguards) — Axios, 2026-06-09
+- [Claude Mythos goes public in new Fable 5 model that's 'safe for general use'](https://9to5google.com/2026/06/09/anthropic-claude-mythos-fable-5-model-release/) — 9to5Google, 2026-06-09
+- [Anthropic confirms Claude Mythos-class models will roll out to the public](https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-confirms-claude-mythos-class-models-will-roll-out-to-the-public/) — BleepingComputer
+- Anthropic — Compliance API integration docs (support.claude.com / platform.claude.com)
+- Help Net Security — Anthropic adds 28 security and compliance integrations (2026-05)
+
+*Personal observation, not an official position of any organization. Not investment or procurement advice.*

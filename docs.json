@@ -50,6 +50,10 @@
           {
             "group": "觀點 / Posts",
             "pages": [
+              "posts/fable5-mythos-public-launch",
+              "posts/compliance-api-business-model",
+              "posts/compliance-api-why-free",
+              "posts/defense-playbook-after-fable5",
               "posts/gtc-taipei-2026-agent-takeaways",
               "posts/google-io-2026-agent-governance-gap",
               "posts/ai-ascent-2026-security-asymmetry",

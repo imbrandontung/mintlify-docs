@@ -1,0 +1,134 @@
+---
+title: "A Free Tool That Still Makes Money — The Business Model Behind Claude's Oversight Hook"
+description: "Part 2 of the Compliance API series. How a $0-SKU governance hook generates revenue: pull architecture, two-sided value chain, and why the Fable 5 free window will produce a usage bill in July."
+---
+
+> Brandon Tung · imBrandon
+> 2026-06-10 · Part 2 of 4 — Compliance API Series
+
+【免費工具怎麼還會賺錢？拆解 Claude 監看鉤子的商業模式】
+
+【A Free Tool That Still Makes Money — The Business Model Behind Claude's Oversight Hook】
+
+---
+
+# English Version
+
+Part 1 set the scene: Fable 5 just went public, and the free oversight tool (Compliance API) just became the line between "employees using AI openly" and "employees using AI in the shadows."
+
+This post answers the obvious question — if it's free, how does Anthropic make money on it?
+
+## How the oversight data actually flows
+
+```
+① Where data comes from     ② Free oversight hook   ③ 28 security platforms     ④ Where it lands
+─────────────────────       ─────────────────────   ─────────────────────       ─────────────────
+Enterprise plan             Compliance API          Security dashboards         SOC alerts
+ ├ chat content              (the free hook)         (the tools you already      audit reports
+ └ activity events                                   have for tracking logins,   policy enforcement
+Platform plan                                        scanning files, etc.)
+ └ activity only
+```
+
+Three things to notice:
+
+1. **The security tools pull data from Claude, not the other way around.** Anthropic doesn't push anything. The customer's existing security systems just connect once and start reading. Low effort to set up.
+2. **Two levels of detail.** The Enterprise plan exposes full chat content (the actual prompts and answers). The smaller Platform plan only exposes activity events (who logged in, what setting changed). The dividing line is whether you need to inspect the actual conversation.
+3. **The security vendors built the integrations themselves, at their own cost.** Cloudflare, CrowdStrike, Palo Alto, Microsoft Purview, Okta — they all paid to wire themselves into the hook. Anthropic just published the specification.
+
+## The value chain — split into two halves
+
+| | Anthropic (upstream) | 28 security vendors (downstream) |
+|---|---|---|
+| The oversight hook | Free, included with paid plans | Built and maintained at the vendor's own cost |
+| Where revenue comes from | Seat fees + **how much customers actually use the AI** | Their own platform licenses + governance add-ons |
+| Goal | More enterprises adopt Claude, deeper into workflows | Stay relevant by integrating with the new model everyone wants |
+
+The trick: Anthropic doesn't charge for the oversight tool. They use it to remove the security team's objection during the sales process. Free oversight in exchange for wider adoption and more daily usage. Everyone benefits.
+
+## Where the money actually shows up — three cost lines
+
+- **Line A** — the paid plan itself (the entry ticket). Either a seat fee, or a usage-only plan with no seat fee.
+- **Line B (the real revenue engine)** — how much your team actually uses the AI. Billed by the word, like a phone-call meter. Since April 2026, usage charges are completely separate from seat fees.
+- **Line C** — third-party security platform fees. The vendors charge by data volume, by user count, or by storage used.
+
+The free oversight hook itself = $0. The real bill arrives via Line B.
+
+## Why this matters more after Fable 5
+
+Fable 5 is free to use until 2026-06-22. That window will produce a usage surge.
+
+After June 22, that usage doesn't disappear — it converts into bills. Companies that started running Fable-powered workflows during the free window will hit Line B at full production volume in July.
+
+If you're an integrator, this is the moment to help customers model their costs before the bill arrives. Customers who set spending limits and turn on oversight in June will have a clean September. The ones who didn't will get an interesting bill — and probably an interesting audit too.
+
+## Coming up
+
+**Part 3** — Why give the oversight away? Three layers of strategy, plus the trade-off between open ecosystems and walled gardens.
+
+---
+
+# 中文版
+
+Part 1 鋪好場景：Fable 5 公開上線，免費的監看鉤子（Compliance API）成了「員工正大光明用 AI」與「員工偷偷用 AI」之間唯一的分界。
+
+這篇回答最直接的問題——如果是免費的，Anthropic 到底怎麼從這個工具賺錢？
+
+## 監看資料到底怎麼流動
+
+```
+① 資料來源               ② 免費監看鉤子          ③ 28 家資安平台          ④ 落地
+─────────────────       ──────────────         ─────────────────        ─────────────
+Enterprise 方案          Compliance API         資安儀表板               資安警報
+ ├ 對話內容              （免費鉤子）            （公司現有的            稽核報告
+ └ 活動事件                                       追蹤登入、掃描檔案     政策執行
+Platform 方案                                    等系統）
+ └ 只有活動事件
+```
+
+三個重點：
+
+1. **是資安工具去 Claude 那邊抓，不是 Claude 推過來。** 客戶現有的資安系統只要接一次，就能持續讀資料。建置成本極低
+2. **兩個層級的細節。** Enterprise 方案露出完整對話內容（實際的 prompt 和回答）。較小的 Platform 方案只露出活動事件（誰登入、改了哪個設定）。分界線就是「你需不需要看實際對話」
+3. **整合是資安廠商自己出錢做的。** Cloudflare、CrowdStrike、Palo Alto、Microsoft Purview、Okta——都自費把自己接上這個鉤子。Anthropic 只公布規格
+
+## 價值鏈：切成兩段
+
+| | Anthropic（上游） | 28 家資安廠商（下游） |
+|---|---|---|
+| 監看鉤子 | 免費附在付費方案裡 | 廠商自費建、自費維護 |
+| 收入來源 | 席次費 + **客戶實際用了多少** | 自家平台授權 + 治理模組加購 |
+| 目標 | 讓更多企業用 Claude、用得更深 | 整合進大家都要的新模型，保住自己的價值 |
+
+關鍵手法：Anthropic 不對監看工具收費，而是用它「在銷售過程中清掉資安團隊的否決票」。免費監看，換來更廣的採用、更深的日常使用。雙方都受益。
+
+## 錢從哪裡進來——三條成本線
+
+- **A 線** — 付費方案本身（入場券）。一張席次費，或是只按用量計費的方案
+- **B 線（真正的營收引擎）** — 團隊實際用了多少。按字數計費，像通話費的「分鐘數」。2026/4 起，用量費和席次費完全分開算
+- **C 線** — 第三方資安平台的授權費。廠商按資料量、按使用人數、或按儲存空間收費
+
+免費監看鉤子本身 = $0。真實帳單從 B 線送達。
+
+## Fable 5 之後，這套邏輯為什麼更重要
+
+Fable 5 在 6/22 之前免費使用。這段窗口會製造一波用量爆量。
+
+6/22 之後用量不會消失——它會轉成帳單。在 6 月用免費 Fable 跑起來的企業工作流，7 月就會以正式生產規模撞上 B 線。
+
+如果你是整合商，這就是「在帳單到之前先幫客戶做成本建模」的關鍵窗口。在 6 月就設定花費上限、把監看打開的客戶，9 月會有一張乾淨的帳單。沒做的，會收到一張有趣的帳單——和一場有趣的稽核。
+
+## 預告下一篇
+
+**Part 3** — 為什麼把監看免費送出去？三層策略邏輯，加開放生態 vs 封閉花園的權衡。
+
+---
+
+## Sources
+
+- Anthropic — Compliance API integration docs (support.claude.com / platform.claude.com, 2026-05)
+- Help Net Security — Anthropic adds 28 security and compliance integrations (2026-05-25)
+- Anthropic — Pricing & Token billing decoupling (2026-04)
+- Datadog / Netskope / SailPoint / Concentric AI — Compliance API integration press
+
+*Personal observation, not an official position of any organization. Not investment or procurement advice.*
